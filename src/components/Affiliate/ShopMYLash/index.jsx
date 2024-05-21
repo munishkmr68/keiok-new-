@@ -107,6 +107,20 @@ const ShopMYLash = () => {
         </div>
         <NeedHelp />
       </div>
+      <div className="bg-pink">
+        <div className="max-w-[484px] mx-auto px-4 py-8">
+          <ul className="space-y-1 sm:text-base text-sm text-t4 font-medium">
+            <li className="flex items-center gap-2">
+              <CheckmarkIcon className="w-4 h-4" />
+              <span>It only works if you use it</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <CheckmarkIcon className="w-4 h-4" />
+              <span>Optional affiliate opportunity</span>
+            </li>
+          </ul>
+        </div>
+      </div>
       <Footer />
       {isModalOpen && <SignInModal onClose={toggleModal} />}
     </>

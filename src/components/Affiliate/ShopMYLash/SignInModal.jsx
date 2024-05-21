@@ -34,7 +34,7 @@ const SignInModal = ({ onClose }) => {
                     onClick={() => onClose("")}
                   />
                 </div>
-                <Dialog.Panel className="w-full max-w-[452px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all shadow-none">
+                <Dialog.Panel className="w-full max-w-[452px] transform  rounded-2xl bg-white p-6 text-left align-middle transition-all">
                   <LanguageSelector />
                   <button className="primary-button mt-6">Sign in</button>
                 </Dialog.Panel>

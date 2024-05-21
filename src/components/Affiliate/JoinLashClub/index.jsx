@@ -11,11 +11,11 @@ import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import TruckIcon from "../../../assets/images/icons/truck.svg";
 import InstantResult from "./InstantResult";
 import IsubscribeLash from "./IsubscribeLash";
+import Yes from "./Yes";
 
 const JoinLashClub = () => {
   return (
     <>
-   
       <div className="max-w-[484px] mx-auto px-4 pt-8">
         <div className="flex flex-col items-center gap-0.5">
           <Image
@@ -41,13 +41,10 @@ const JoinLashClub = () => {
           <TruckIcon className="fill-current" />
           <p className="text-sm">Shipping is calculated at checkout</p>
         </div>
-        <div className="flex flex-col gap-6">
-          <div className="mt-14">
-            <InstantResult />
-          </div>
-          <div className="">
-            <IsubscribeLash />
-          </div>
+        <div className="flex flex-col gap-6 mt-14">
+          <InstantResult />
+          <IsubscribeLash />
+          <Yes />
         </div>
       </div>
 
