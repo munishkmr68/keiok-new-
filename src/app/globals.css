@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-brandon font-normal text-t5 text-sm sm:text-base ;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium text-t2 leading-10;
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply lg:text-4xl sm:text-3xl text-2xl;
+  }
+  h3 {
+    @apply text-2xl sm:text-[1.75rem] font-bold;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  h5 {
+    @apply text-xl;
+  }
+  h6 {
+    @apply text-lg;
+  }
+
+  a {
+    @apply text-blue;
+  }
+}
+
+@layer components {
+  .primary-button {
+    @apply rounded-xl w-full bg-blue px-4 sm:px-6 py-[13px] text-white text-lg font-medium hover:bg-t1 transition ease-in-out border-0 text-center;
+  }
+  .primary-button-outlined {
+    @apply rounded-3xl w-full bg-white px-4 sm:px-6 py-[8px] text-blue hover:bg-blue hover:text-white transition ease-in-out border border-blue;
+  }
+  .primary-button-text-only {
+    @apply text-blue;
+  }
+  .dark-button {
+    @apply rounded-3xl w-full bg-t1 hover:bg-blue px-4 sm:px-6 py-[9px] text-white transition ease-in-out border-0;
+  }
+  .dark-button-outlined {
+    @apply rounded-3xl w-full bg-white hover:bg-t1 border border-t1 px-4 sm:px-6 py-[9px] text-t1 hover:text-white transition ease-in-out;
+  }
+
+  .tab-button {
+    @apply rounded-3xl w-full bg-white px-4 sm:px-6 py-[9px] text-blue transition ease-in-out border border-blue relative;
+  }
+
+  .tab-button-selected {
+    @apply rounded-3xl w-full bg-blue px-4 sm:px-6 py-[9px] text-white transition ease-in-out border border-blue z-10;
+  }
+
+  .carousel-slider {
+    @apply flex flex-col;
+  }
+  .carousel-arrows {
+    @apply order-last;
+  }
+  .disclosure-button {
+    @apply flex w-full justify-between border-b border-gray py-4 text-t2 text-base sm:text-lg font-medium items-center;
+  }
+  .disclosure-button-inner {
+    @apply flex w-full justify-between border-b border-gray py-4 text-t2 text-sm sm:text-base items-center;
+  }
+  .input1 {
+    @apply border border-t5 px-3.5 py-3 block w-full placeholder:text-input1 text-t2 sm:text-lg text-base rounded-xl focus-visible:outline-none focus-visible:border-blue;
+  }
+
+  .floating-input {
+    @apply border-2 border-t5 px-3.5 pt-4 pb-1 min-h-[48px] rounded-xl block w-full placeholder:text-input1 font-medium text-t1 sm:text-[17px] text-base  focus-visible:outline-none focus-visible:border-blue;
+  }
+  .floating-label {
+    @apply absolute text-t5 peer-placeholder-shown:sm:text-[17px] text-xs peer-placeholder-shown:font-medium font-bold peer-focus:!font-bold peer-focus:!text-xs duration-300 transform -translate-y-[0.4rem] top-[0.8rem] z-10 origin-[0] start-3.5  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-[0.4rem] rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto pointer-events-none;
+  }
+  .floating-listbox-label {
+    @apply absolute top-[0.9rem] transform -translate-y-[0] z-10 bg-white origin-[0] start-3.5 pointer-events-none duration-300 text-lg;
+  }
+  button[data-headlessui-state="open"] .floating-listbox-label,
+  .selected-option .floating-listbox-label {
+    @apply translate-y-[-0.9rem] text-base font-bold;
+  }
+
+  .input1.invalid {
+    @apply border-red;
+  }
+  .input1.valid {
+    @apply border-green;
+  }
+  .input1.error {
+    @apply border-red;
+  }
+  .input1.filled {
+    @apply border-green;
+  }
+  .input1.active {
+    @apply border-blue;
+  }
+  .selectbox {
+    @apply border border-input1 pl-3.5 pr-7 py-3 block w-full text-input1  sm:text-lg text-base rounded-[3px] bg-white bg-[] appearance-none;
+  }
+  .otp-input-container {
+    @apply flex gap-2 justify-between;
+  }
+  .otp-input {
+    @apply text-t2 text-sm font-bold border-2 border-gray rounded-md min-w-[48px] h-[48px] focus-visible:border-blue focus-visible:rounded-[9px] focus-visible:outline-none appearance-none;
+  }
+  .ant-picker.valid .ant-picker-input input {
+    @apply border-green;
+  }
+}
+
+@layer utilities {
+  @font-face {
+    font-family: "Brandon Grotesque";
+    src: url("../assets/fonts/BrandonGrotesque-Bold.woff2") format("woff2"),
+      url("../assets/fonts/BrandonGrotesque-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Brandon Grotesque";
+    src: url("../assets/fonts/BrandonGrotesque-Light.woff2") format("woff2"),
+      url("../assets/fonts/BrandonGrotesque-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Brandon Grotesque";
+    src: url("../assets/fonts/BrandonGrotesque-Black.woff2") format("woff2"),
+      url("../assets/fonts/BrandonGrotesque-Black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Brandon Grotesque";
+    src: url("../assets/fonts/BrandonGrotesque-Thin.woff2") format("woff2"),
+      url("../assets/fonts/BrandonGrotesque-Thin.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Brandon Grotesque";
+    src: url("../assets/fonts/BrandonGrotesque-Regular.woff2") format("woff2"),
+      url("../assets/fonts/BrandonGrotesque-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Brandon Grotesque";
+    src: url("../assets/fonts/BrandonGrotesque-Medium.woff2") format("woff2"),
+      url("../assets/fonts/BrandonGrotesque-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  .label {
+    @apply text-base sm:text-lg font-medium text-t2;
+  }
+
+  .product-carousel .carousel.carousel-slider {
+    @apply overflow-visible;
+  }
+  .product-carousel .carousel .control-dots {
+    @apply bottom-[-50px];
+  }
+  .product-carousel {
+    @apply pb-[10px];
+  }
+  .product-carousel .carousel .control-dots .dot {
+    @apply bg-gray shadow-none opacity-100;
+  }
+  .product-carousel .carousel .control-dots .dot.selected {
+    @apply bg-blue;
+  }
+
+  .suggestion-item {
+    @apply font-bold text-t2 px-4 p-3.5 bg-white odd:bg-bg3 border border-transparent;
+  }
+  .suggestion-item--active {
+    @apply text-blue  bg-bg2 odd:bg-bg2 border border-blue;
+  }
+  .autocomplete-dropdown-container {
+    @apply border border-t-0 border-blue rounded-b-[3px] -mt-px;
+  }
+}
+
+/* 10 jan 2024 starts */
+.product-carousel .carousel:last-child {
+  display: none;
+}
+
+/* 10 jan 2024 ends */
