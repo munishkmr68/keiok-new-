@@ -1,34 +1,38 @@
 import React from "react";
 import Image from "next/image";
-import prdimage from "../../../assets/images/i-subscribe-lash.png";
-import TextCutt from "../../../assets/images/text-cutt-pattren.svg";
+import ClipartImg from "../../../assets/images/clipart-img.png";
+import FlagIcon from "../../../assets/images/us-flag-circle-icon.png";
 
 const Yes = () => {
   return (
     <div className="border rounded-xl shadow-shadow1 border-gray p-6 overflow-hidden">
-      <div className="relative">
-        <Image
-          className="max-h-[352px] w-auto relative -left-6"
-          src={prdimage}
-          alt="user-img"
-        />
-        <div className="absolute top-0 right-[4.375rem]">
-          <p className="text-t4 leading-tight font-medium">
-            I subscribe
-            <br />
-            because of our
-          </p>
-          <h5 className="text-[22px] text-darkpink font-bold">Lash Cycle</h5>
-        </div>
-        <div className="absolute bottom-0 right-[6.563rem]">
-          <h5 className="text-[22px] text-darkpink font-bold">
-            Every 12 weeks
-          </h5>
-          <p className="text-t4 leading-tight font-medium">
-            we naturally shed and
-            <br />
-            replace all of our lashes
-          </p>
+      <div className="relative sm:py-10">
+        <h5 className="text-[22px] text-darkpink font-bold text-center">Yessss</h5>
+        <div className="flex mt-14 justify-evenly">
+          <div className="flex flex-col items-center gap-2">
+            <Image
+              className="max-w-[56px] w-full"
+              src={ClipartImg}
+              alt="user-img"
+            />
+            <p className="text-t4 text-center font-medium">
+              Made <span className="text-darkpink font-black">'Clean'</span> in
+              <br />
+              the USA
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <Image
+              className="max-w-[56px] w-full"
+              src={FlagIcon}
+              alt="user-img"
+            />
+            <p className="text-t4 text-center font-medium">
+              Cruelty free
+              <br />
+              <span className="text-darkpink font-black">+</span> vegan
+            </p>
+          </div>
         </div>
       </div>
     </div>
