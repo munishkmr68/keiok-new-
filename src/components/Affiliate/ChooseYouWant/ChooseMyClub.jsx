@@ -6,20 +6,15 @@ import EncryptionPolicy from "@/components/EncryptionPolicy";
 import NeedHelp from "@/components/NeedHelp";
 import Image from "next/image";
 import profileImg from "../../../assets/images/profile-product-img.png";
-import { ChevronRightIcon } from "@heroicons/react/24/solid";
-import TruckIcon from "../../../assets/images/icons/truck.svg";
-import Yes from "../JoinLashClub/Yes";
-import Faq from "../JoinLashClub/Faq";
-import NightlyRoutine from "../JoinLashClub/NightlyRoutine";
-import InstantResult from "../JoinLashClub/InstantResult";
-import IsubscribeLash from "../JoinLashClub/IsubscribeLash";
+import LashesIcon from "../../../assets/images/icons/lashes.svg";
+import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
 import Tabs from "./Tabs";
 import MyClub from "./MyClub";
 
 const ChooseMyClub = () => {
   return (
     <>
-      <div className="max-w-[484px] mx-auto px-4 pt-8">
+      <div className="max-w-[484px] mx-auto px-4 pt-8 ">
         <div className="flex flex-col items-center gap-0.5">
           <Image className="w-[230px] mb-3" src={profileImg} alt="user-img" />
           <h4 className="font-bold text-t4">
@@ -31,36 +26,47 @@ const ChooseMyClub = () => {
         </div>
 
         <Tabs />
-
-        
       </div>
 
-      <div className="max-w-[484px] mx-auto px-4 mt-20">
-        <Faq />
-      </div>
-
-      <div className="max-w-[484px] mx-auto px-4 mb-12">
-        <div className="my-24">
+      <div className="max-w-[484px] mx-auto px-4 mb-4">
+        <div className="my-28">
           <EncryptionPolicy />
         </div>
         <NeedHelp />
       </div>
       <div className="bg-pink">
         <div className="max-w-[484px] mx-auto px-4 py-8">
-          <ul className="space-y-1 sm:text-base text-sm text-t4 font-medium">
-            <li className="flex items-center gap-2">
-              <CheckmarkIcon className="w-4 h-4" />
-              <span>It only works if you use it</span>
+          <ul className="text-t4 space-y-1">
+            <li className="flex gap-2">
+              <LashesIcon className="w-6 h-6" />
+              <span className="text-base sm:text-lg font-medium">
+                Natural LASHES
+                <br />+ BROWS
+              </span>
             </li>
-            <li className="flex items-center gap-2">
-              <CheckmarkIcon className="w-4 h-4" />
-              <span>Optional affiliate opportunity</span>
+            <li className="flex gap-2">
+              <SubscribeIcone className="w-6 h-6" />
+              <span className="text-base sm:text-lg font-medium">
+                Subscribe because of our <br />
+                Lash Cycle{" "}
+                <span className="text-blue text-base sm:text-lg font-medium">
+                  Learn more
+                </span>
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <CheckmarkIcon className="w-6 h-6" />
+              <span className="text-base sm:text-lg font-medium">
+                No commitments,
+                <br />
+                Cancel anytime
+              </span>
             </li>
           </ul>
         </div>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

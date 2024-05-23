@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import ShopMYLash from "@/components/Affiliate/ShopMYLash";
 import Signin from "@/components/Affiliate/ShopMYLash/Signin";
-import ChooseMyClub from "@/components/Affiliate/ChooseYouWant/ChooseMyClub";
 
 const Page = () => {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -18,7 +17,6 @@ const Page = () => {
       ) : (
         <ShopMYLash onSignInClick={handleShowSignIn} />
       )}
-      {/* <ChooseMyClub/> */}
     </>
   );
 };
