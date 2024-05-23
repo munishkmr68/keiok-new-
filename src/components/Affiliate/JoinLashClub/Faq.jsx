@@ -56,7 +56,7 @@ const Faq = () => {
                   />
                   <p className="text-t4 text-center font-medium">
                     Made{" "}
-                    <span className="text-darkpink font-black">'Clean'</span> in
+                    <span className="text-darkpink font-black">Clean</span> in
                     <br />
                     the USA
                   </p>

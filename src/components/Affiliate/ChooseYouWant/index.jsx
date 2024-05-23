@@ -11,13 +11,16 @@ import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
 import LashesIcon from "../../../assets/images/icons/lashes.svg";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import ChoosePopUp from "./ChoosePopUp";
+import ChooseMyClub from "./ChooseMyClub";
 
-const Choose = (props) => {
+const Choose = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [showChooseMyClubComponent, setShowChooseMyClubComponent] = useState(false);
+
   return (
     <>
-     {openModal && <ChoosePopUp openModal={openModal} setOpenModal={setOpenModal} setShowChoose={props?.setShowChoose}/>}
-      <div className="max-w-[484px] mx-auto px-4 pt-8">
+     {openModal && <ChoosePopUp openModal={openModal} setOpenModal={setOpenModal} setShowChooseMyClubComponent={setShowChooseMyClubComponent} />}
+    {!showChooseMyClubComponent? <> <div className="max-w-[484px] mx-auto px-4 pt-8">
         <div className="flex flex-col items-center gap-0.5">
         <Image
             className="w-[230px] mb-3"
@@ -102,7 +105,7 @@ const Choose = (props) => {
             </li>
           </ul>
         </div>
-      </div>
+      </div></>:<ChooseMyClub/>}
       <Footer />
     </>
   );

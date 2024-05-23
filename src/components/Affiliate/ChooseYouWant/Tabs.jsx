@@ -1,10 +1,11 @@
-import { Tab } from "@headlessui/react";
+import { Disclosure, Tab } from "@headlessui/react";
 import MyClub from "./MyClub";
 import Youchoose from "./Youchoose";
 import EarnyourWay from "./EarnyourWay";
 import PersonalWebsite from "./PersonalWebsite";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
-
+import CloseIcon from "../../../assets/images/icons/close.svg";
+import PlusIcon from "../../../assets/images/icons/plus.svg";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -65,8 +66,8 @@ export default function Example() {
               <PersonalWebsite />
             </div>
             <div className="mt-4">
-              <div className="border rounded-xl shadow-shadow1 border-gray p-6 overflow-hidden">
-                <span className="text-[13px]">
+              <div className="flex gap-2.5 it items-start shadow-shadow1 border border-gray py-4 px-6 rounded-xl text-sm">
+                <span className="text-[13px] leading-[18px]">
                   I<span className="text-darkpink"> choose</span> to subscribe
                   because of<span className="text-darkpink"> our</span> Lash
                   Cycle and I can <span className="text-darkpink"> choose</span>{" "}
@@ -74,10 +75,41 @@ export default function Example() {
                 </span>
               </div>
             </div>
-            <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6" onClick={() => setOpenModal(!openModal)}>
-          Secure Checkout
-          <ChevronRightIcon className="w-4 h-4" />
-        </button>
+            <button
+              className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
+              onClick={() => setOpenModal(!openModal)}
+            >
+              Secure Checkout
+              <ChevronRightIcon className="w-4 h-4" />
+            </button>
+            <div className="mt-24 mb-24 ">
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="disclosure-button"></Disclosure.Button>
+                  </>
+                )}
+              </Disclosure>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="disclosure-button">
+                      <span>FAQ for MY lash</span>
+                      <PlusIcon
+                        className={`${open ? "hidden" : "block"} h-5 w-5`}
+                      />
+                      <CloseIcon className={`${open ? "block" : "hidden"} `} />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="py-4 border-b border-gray">
+                      Sed commodo tincidunt finibus. Proin volutpat sollicitudin
+                      congue. Nullam fringilla erat quam, vel tincidunt mauris
+                      commodo vel. Integer vestibulum sapien quis justo
+                      efficitur mollis
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+            </div>
           </Tab.Panel>
           <Tab.Panel
             className={classNames(
@@ -154,7 +186,7 @@ export default function Example() {
               </li>
               <li className="relative rounded-md p-3 hover:bg-gray-100">
                 <h3 className="text-sm font-medium leading-5">
-                  The worst advice we've ever heard about coffee
+                  The worst advice we ve ever heard about coffee
                 </h3>
                 <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
                   <li>4d ago</li>
