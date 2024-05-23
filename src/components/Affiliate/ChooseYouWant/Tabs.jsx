@@ -1,4 +1,9 @@
 import { Tab } from "@headlessui/react";
+import MyClub from "./MyClub";
+import Youchoose from "./Youchoose";
+import EarnyourWay from "./EarnyourWay";
+import PersonalWebsite from "./PersonalWebsite";
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -6,7 +11,7 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <div className="w-full max-w-md px-2 py-16 sm:px-0">
+    <div className="w-full max-w-md px-2 py-6 sm:px-0">
       <Tab.Group>
         <Tab.List className="flex space-x-2 rounded-xl bg-blue-900/20 p-1">
           <Tab
@@ -42,53 +47,37 @@ export default function Example() {
             1-time buy
           </Tab>
         </Tab.List>
-        <Tab.Panels className="mt-2">
+        <Tab.Panels className="mt-5 ">
           <Tab.Panel
             className={classNames(
-              "rounded-xl bg-white p-3",
+              "rounded-xl bg-white ",
               "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
             )}
           >
-            <ul>
-              <li className="relative rounded-md p-3 hover:bg-gray-100">
-                <h3 className="text-sm font-medium leading-5">
-                  Does drinking coffee make you smarter?
-                </h3>
-                <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                  <li>5h ago</li>
-                  <li>&middot;</li>
-                  <li>5 comments</li>
-                  <li>&middot;</li>
-                  <li>2 shares</li>
-                </ul>
-                <a
-                  href="#"
-                  className={classNames(
-                    "absolute inset-0 rounded-md",
-                    "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                  )}
-                />
-              </li>
-              <li className="relative rounded-md p-3 hover:bg-gray-100">
-                <h3 className="text-sm font-medium leading-5">
-                  So you've bought coffee... now what?
-                </h3>
-                <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                  <li>2h ago</li>
-                  <li>&middot;</li>
-                  <li>3 comments</li>
-                  <li>&middot;</li>
-                  <li>2 shares</li>
-                </ul>
-                <a
-                  href="#"
-                  className={classNames(
-                    "absolute inset-0 rounded-md",
-                    "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                  )}
-                />
-              </li>
-            </ul>
+            <MyClub />
+            <div className="mt-4">
+              <Youchoose />
+            </div>
+            <div className="mt-4">
+              <EarnyourWay />
+            </div>
+            <div className="mt-4">
+              <PersonalWebsite />
+            </div>
+            <div className="mt-4">
+              <div className="border rounded-xl shadow-shadow1 border-gray p-6 overflow-hidden">
+                <span className="text-[13px]">
+                  I<span className="text-darkpink"> choose</span> to subscribe
+                  because of<span className="text-darkpink"> our</span> Lash
+                  Cycle and I can <span className="text-darkpink"> choose</span>{" "}
+                  to cancel anytime
+                </span>
+              </div>
+            </div>
+            <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6" onClick={() => setOpenModal(!openModal)}>
+          Secure Checkout
+          <ChevronRightIcon className="w-4 h-4" />
+        </button>
           </Tab.Panel>
           <Tab.Panel
             className={classNames(

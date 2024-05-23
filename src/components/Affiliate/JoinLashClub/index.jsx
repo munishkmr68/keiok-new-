@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "@/common/Footer";
 import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
 import EncryptionPolicy from "@/components/EncryptionPolicy";
@@ -13,10 +13,19 @@ import IsubscribeLash from "./IsubscribeLash";
 import Yes from "./Yes";
 import Faq from "./Faq";
 import NightlyRoutine from "./NightlyRoutine";
+import Choose from "../ChooseYouWant";
 
 const JoinLashClub = () => {
+  const [showChoose, setShowChoose] = useState(false);
+  const handleChoose = () => {
+    setShowChoose(true);
+  };
   return (
     <>
+    {showChoose ? (
+        <Choose setShowChoose={setShowChoose}/>
+      ) : (
+        <>
       <div className="max-w-[484px] mx-auto px-4 pt-8">
         <div className="flex flex-col items-center gap-0.5">
           <Image
@@ -34,7 +43,7 @@ const JoinLashClub = () => {
           </h6>
           <p className="text-t3">Starting at $20</p>
         </div>
-        <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6">
+        <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6" onClick={handleChoose}>
           join MY lash club
           <ChevronRightIcon className="w-4 h-4" />
         </button>
@@ -77,6 +86,8 @@ const JoinLashClub = () => {
 
       <Footer />
     </>
+     )}
+     </>
   );
 };
 

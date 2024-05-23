@@ -14,8 +14,9 @@ import NightlyRoutine from "../JoinLashClub/NightlyRoutine";
 import InstantResult from "../JoinLashClub/InstantResult";
 import IsubscribeLash from "../JoinLashClub/IsubscribeLash";
 import Tabs from "./Tabs";
+import MyClub from "./MyClub";
 
-const JoinLashClub = () => {
+const ChooseMyClub = () => {
   return (
     <>
       <div className="max-w-[484px] mx-auto px-4 pt-8">
@@ -31,20 +32,7 @@ const JoinLashClub = () => {
 
         <Tabs />
 
-        <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6">
-          join MY lash club
-          <ChevronRightIcon className="w-4 h-4" />
-        </button>
-        <div className="flex gap-2.5 items-center justify-center text-t5 mt-3">
-          <TruckIcon className="fill-current" />
-          <p className="text-sm">Shipping is calculated at checkout</p>
-        </div>
-        <div className="flex flex-col gap-6 mt-14">
-          <InstantResult />
-          <IsubscribeLash />
-          <Yes />
-          <NightlyRoutine />
-        </div>
+        
       </div>
 
       <div className="max-w-[484px] mx-auto px-4 mt-20">
@@ -77,4 +65,4 @@ const JoinLashClub = () => {
   );
 };
 
-export default JoinLashClub;
+export default ChooseMyClub;
