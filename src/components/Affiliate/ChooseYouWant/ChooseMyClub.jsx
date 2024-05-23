@@ -13,7 +13,7 @@ import Tabs from "./Tabs";
 const ChooseMyClub = () => {
   return (
     <>
-      <div className="max-w-[484px] mx-auto px-4 ">
+      <div className="max-w-[484px] mx-auto px-4 pt-8 ">
         <div className="flex flex-col items-center gap-0.5">
           <Image className="w-[230px] mb-3" src={profileImg} alt="user-img" />
           <h4 className="font-bold text-t4">
