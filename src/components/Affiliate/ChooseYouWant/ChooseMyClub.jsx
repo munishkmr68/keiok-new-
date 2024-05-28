@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Footer from "@/common/Footer";
 import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
 import EncryptionPolicy from "@/components/EncryptionPolicy";
 import NeedHelp from "@/components/NeedHelp";
@@ -9,7 +8,6 @@ import profileImg from "../../../assets/images/profile-product-img.png";
 import LashesIcon from "../../../assets/images/icons/lashes.svg";
 import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
 import Tabs from "./Tabs";
-import MyClub from "./MyClub";
 
 const ChooseMyClub = () => {
   return (

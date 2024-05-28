@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
 import EncryptionPolicy from "@/components/EncryptionPolicy";
@@ -5,17 +6,18 @@ import Image from "next/image";
 import profileImg from "../../../assets/images/mylash-myclub-img.png";
 import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
 import { XCircleIcon } from "@heroicons/react/24/outline";
+import ChangeDropdown from "./ChangeDropdown";
 
-const OrderSummary = ({ onClose }) => {
+const OrderSummaryEditable = ({ onClose }) => {
   return (
     <>
       <header className="sticky top-0 z-40 bg-white shadow-headershadow">
         <div className="mx-auto flex container items-center justify-between py-[18px] px-4">
           <button
-            className="flex items-center gap-1 text-sm font-medium"
+            className="flex items-center gap-1 text-sm font-medium text-blue"
             onClick={onClose}
           >
-            <XCircleIcon className="size-6 text-t4 mr-1" /> Close order summary
+            <XCircleIcon className="size-6  mr-1" /> Close order summary
           </button>
 
           <span className="text-[13px] font-medium text-blue">$20.00</span>
@@ -87,9 +89,41 @@ const OrderSummary = ({ onClose }) => {
           </div>
           <div className="divide-y divide-solid divide-gray text-t1">
             <div className="pt-6 pb-8">
-              <h6 className="text-sm">Shipping Address</h6>
-              <span className="w-3 h-[1px] bg-t2 block mt-3"></span>
+              <div className="flex flex-col gap-4">
+                <div>
+                  <div className="font-medium text-t2 mb-2 flex justify-between items-center">
+                    Shipping Address
+                    <ChangeDropdown />
+                  </div>
+                  <p className="text-t4 text-sm">
+                    Erica Jones
+                    <br />
+                    USA
+                    <br />
+                    3836 E Stiles Ln
+                    <br />
+                    Gilbert, AZ 85295-0150
+                    <br />
+                    Apt 1
+                  </p>
+                </div>
+              </div>
             </div>
+
+            <div className="pt-6 pb-8">
+              <div className="flex flex-col gap-4 ">
+                <div>
+                  <div className="font-medium text-t2 mb-2 flex justify-between">
+                    <div>
+                      <div className="font-medium text-t2 mb-2">Email</div>
+                      <p className="text-t4 text-sm">j ........ 2@gmail.com</p>
+                    </div>
+                    <ChangeDropdown />
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="pt-6 pb-8">
               <h6 className="text-sm">Email</h6>
               <span className="w-3 h-[1px] bg-t2 block mt-3"></span>
@@ -112,4 +146,4 @@ const OrderSummary = ({ onClose }) => {
   );
 };
 
-export default OrderSummary;
+export default OrderSummaryEditable;

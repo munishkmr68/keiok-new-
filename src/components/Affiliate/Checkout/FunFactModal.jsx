@@ -1,5 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
 import Close from "../../../assets/images/icons/close-circle.svg";
 
 const checkicon = {
@@ -11,14 +12,23 @@ const listingspan = {
   width: "calc(100% - 34px)",
 };
 
-const ConfirmAddressModal = (props) => {
-  const { openModal, setOpenModal, onUseSuggestedAddress } = props;
+const FunFactModal = (props) => {
+  const { openModal, setOpenModal } = props
 
   function closeModal() {
     setOpenModal(!openModal);
   }
+
   return (
     <>
+      {/* <div className="flex items-center justify-items-center min-h-screen">
+        <button
+          type="button"
+          className="rounded-full border border-t2 text-t2 hover:bg-t2 hover:text-white transition ease-in-out  px-4 py-2 mx-auto"
+        >
+          Fun Fact
+        </button>
+      </div> */}
       <Transition appear show={openModal} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -51,42 +61,28 @@ const ConfirmAddressModal = (props) => {
                       onClick={closeModal}
                     />
                   </div>
+                  <div className="py-4  flex items-center justify-between gap-2 group">
+                    <h3 className="font-bold">Fun fact:</h3>
+                  </div>
+                  <ul className="space-y-1 mb-6 sm:text-md text-base text-t4">
+                    <li className="flex flex-wrap gap-2 mb-2">
+                      <CheckmarkIcon style={checkicon} />
+                      <span style={listingspan}>
+                        Your eyelashes fall out and replace themselves every
+                        8-12 weeks.{" "}
+                      </span>
+                    </li>
+                    <li className="flex flex-wrap gap-2 mb-2">
+                      <CheckmarkIcon style={checkicon} />
+                      <span style={listingspan}>
+                        Because of the Lash Cycle, if you stop using MY lash
+                        serum, your lashes will gradually go back to their
+                        natural look.
+                      </span>
+                    </li>
+                  </ul>
 
-                  <h6 className="font-bold mb-1">Let's confirm your address</h6>
-                  <p className="text-t4 font-medium text-[15px]">
-                    USPS was unable to verify the address you entered, but we
-                    found a close a match.
-                  </p>
-                  <div className="shadow-shadow1 border border-gray rounded-xl text-t3 px-6 py-4 mt-6 font-medium text-[15px] flex justify-between gap-2">
-                    <div>
-                      <span className="text-xs font-bold">You Entered</span>
-                      <p>
-                        2134 Oak Bluff Dr
-                        <br />
-                        Davenport, FL 33837-3691
-                      </p>
-                    </div>
-                    <div className="text-xs text-blue font-normal">Change</div>
-                  </div>
-                  <p className="font-medium text-[15px] text-blue my-4 underline text-center">
-                    Use address you entered
-                  </p>
-                  <div className=" bg-pink shadow-shadow1  rounded-xl text-t3 px-6 py-4 mt-6 font-medium text-[15px] flex justify-between gap-2">
-                    <div>
-                      <span className="text-xs font-bold">We suggest</span>
-                      <p>
-                        2134 Oak Bluff Dr
-                        <br />
-                        Davenport, FL 33837
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    className="primary-button mt-6"
-                    onClick={onUseSuggestedAddress}
-                  >
-                    Use suggested address
-                  </button>
+                  <button className="primary-button mt-[30px]" onClick={closeModal}>Got it!</button>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -96,4 +92,4 @@ const ConfirmAddressModal = (props) => {
     </>
   );
 };
-export default ConfirmAddressModal;
+export default FunFactModal;

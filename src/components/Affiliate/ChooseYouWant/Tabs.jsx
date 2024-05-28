@@ -6,6 +6,7 @@ import PersonalWebsite from "./PersonalWebsite";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import CloseIcon from "../../../assets/images/icons/close.svg";
 import PlusIcon from "../../../assets/images/icons/plus.svg";
+import Link from "next/link";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -75,13 +76,13 @@ export default function Example() {
                 </span>
               </div>
             </div>
-            <button
+            <Link
               className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
-              onClick={() => setOpenModal(!openModal)}
+              href="/affiliate/checkout"
             >
               Secure Checkout
               <ChevronRightIcon className="w-4 h-4" />
-            </button>
+            </Link>
             <div className="mt-24 mb-24 ">
               <Disclosure>
                 {({ open }) => (

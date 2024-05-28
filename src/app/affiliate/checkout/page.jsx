@@ -1,6 +1,6 @@
 // Home.jsx
 "use client";
-import Step1 from "@/components/Affiliate/Checkout";
+import Step1 from "@/components/Affiliate/Checkout/SetupCard";
 import Step2 from "@/components/Affiliate/Checkout";
 import Step3 from "@/components/GettingStartedFlow/step3";
 import Step4 from "@/components/GettingStartedFlow/step4";
@@ -20,11 +20,14 @@ import Loader from "@/common/Loader";
 import SuggestionAddressPopup from "@/common/SuggestionAddressPopup";
 
 const Home = (props) => {
-
-  const TOTOAL_STEPS = new Array(10).fill('step');
+  const TOTOAL_STEPS = new Array(10).fill("step");
 
   const {
-    currentStep, setCurrentStep, handleButtonClick, handleBackClick, ...data
+    currentStep,
+    setCurrentStep,
+    handleButtonClick,
+    handleBackClick,
+    ...data
   } = useGetStartedHook(props, TOTOAL_STEPS);
 
   const { useDefaultAddressOrNot, formData, _acceptOrNotAddressOption } = data;
@@ -36,25 +39,27 @@ const Home = (props) => {
       onContinueClick={handleButtonClick}
       onBackClick={handleBackClick}
     />,
-    
   ];
 
-
-  return <>{(data?.loading)
-    ?
-    <Loader />
-    :
+  return (
     <>
-      {steps[currentStep]}
-      <SuggestionAddressPopup {...{
-        _acceptOrNotAddressOption,
-        bypass: useDefaultAddressOrNot?.bypassOrNot,
-        ourAddress: formData,
-        addressOptions: useDefaultAddressOrNot?.addessData,
-      }} />
+      {data?.loading ? (
+        <Loader />
+      ) : (
+        <>
+          {steps[currentStep]}
+          <SuggestionAddressPopup
+            {...{
+              _acceptOrNotAddressOption,
+              bypass: useDefaultAddressOrNot?.bypassOrNot,
+              ourAddress: formData,
+              addressOptions: useDefaultAddressOrNot?.addessData,
+            }}
+          />
+        </>
+      )}
     </>
-  }
-  </>;
+  );
 };
 
 export default withRouteHOC(Home);

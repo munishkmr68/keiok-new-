@@ -1,41 +1,77 @@
 import { useState } from 'react';
-import Link from "next/link";
 import Image from "next/image";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import profileImg from "../../../assets/images/profile-pic-needhelp.png";
 import star from "../../../assets/images/star.png";
 import NortonLogo from "../../../assets/images/norton-logo.png";
-import { XCircleIcon } from '@heroicons/react/24/outline'
 import OrderSummary from "./OrderSummary"; 
+import OrderSummaryEditable from "./OrderSummaryEditable"; 
+import ReviewDeliveryInfo from "./ReviewDeliveryInfo"; 
+import SetupCard from "./SetupCard";
 
 const OrderConfrimation = () => {
 
   const [showOrderSummary, setShowOrderSummary] = useState(false);
+  const [showOrderSummaryEditable, setShowOrderSummaryEditable] = useState(false);
+  const [showReviewDeliveryInfo, setShowReviewDeliveryInfo] = useState(false);
+  const [showSetupCard, setShowSetupCard] = useState(false);
 
-
-  const handleSetupClubClick = () => {
+  const handleViewOrderClick = () => {
     setShowOrderSummary(true);
   };
 
+  const handleClubClick = () => {
+    setShowReviewDeliveryInfo(true);
+  };
 
 
+  const handleCloseOrderSummary = () => {
+    setShowOrderSummary(false);
+  };
+  
+
+  const handleOrderSummaryEditable = () => {
+    setShowOrderSummaryEditable(true);
+    setShowReviewDeliveryInfo(false);
+  };
+
+
+  const handleCloseOrderSummaryEditable = () => {
+    setShowOrderSummaryEditable(false);
+    setShowReviewDeliveryInfo(true);
+  };
+
+  const handleNextClick = () => {
+    setShowReviewDeliveryInfo(false);
+    setShowSetupCard(true);
+  };
 
   if (showOrderSummary) {
-    return <OrderSummary />;
+    return <OrderSummary onClose={handleCloseOrderSummary} />;
+  }
+  if (showOrderSummaryEditable) {
+    return <OrderSummaryEditable onClose={handleCloseOrderSummaryEditable}  />;
   }
 
+  if (showReviewDeliveryInfo) {
+    return <ReviewDeliveryInfo onOrderSummaryEditable={handleOrderSummaryEditable} onNext={handleNextClick} />;
+  }
+  if (showSetupCard) {
+    return <SetupCard />;
+  }
 
   return (
     <>
       <header className="sticky top-0 z-40  bg-white shadow-headershadow">
         <div className="mx-auto flex container items-center justify-between py-[18px] px-4">
-          <Link
-            className="flex items-center gap-1 text-sm font-medium"
-            href="/"
+          <button
+          onClick={handleViewOrderClick}
+            className="flex items-center gap-1 text-sm font-medium text-blue"
+          
           >
-               <XCircleIcon className="size-6 text-t4 mr-1" /> View order confirmation info
+             View order confirmation info
             <ChevronDownIcon className="size-4 relative top-[1px]" />
-          </Link>
+          </button>
 
           <Image
             className="max-w-[66px] ml-auto mb-1"
@@ -65,7 +101,7 @@ const OrderConfrimation = () => {
           <p>Success! Would you like to setup your personal club now?</p>
           <p>Getting setup is easy</p>
         </div>
-        <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-3" onClick={handleSetupClubClick}>
+        <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-3" onClick={handleClubClick}>
           Setup MY club
           <ChevronRightIcon className="w-4 h-4" />
         </button>

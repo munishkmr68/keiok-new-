@@ -204,7 +204,7 @@
     @apply text-blue  bg-bg2 odd:bg-bg2 border border-blue;
   }
   .autocomplete-dropdown-container {
-    @apply border border-t-0 border-blue rounded-b-[3px] -mt-px;
+    @apply border !border-t-0 border-blue rounded-b-[3px] -mt-px;
   }
 }
 

@@ -1,10 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import prdimage from "../../../assets/images/my-club-mylash.png";
-import TextCutt from "../../../assets/images/text-cutt-pattren.svg";
-import Dots from "../../../assets/images/icons/dots.svg";
+import prdimage from "../../../assets/images/mylash-myclub-img.png";
 import star from "../../../assets/images/star.png";
-
 import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
 import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
 

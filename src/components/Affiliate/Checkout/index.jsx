@@ -3,7 +3,6 @@
 import { useState } from "react";
 import GooglePlaceSearchPopup from "../../../common/GooglePlaceSearchPopup";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
-import YourTotal from "@/components/yourtotal";
 import SearchIcon from "../../../assets/images/icons/search.svg";
 import ApplePay from "../../../assets/images/icons/applepay.svg";
 import Googlepay from "../../../assets/images/icons/googlepay-icon.svg";
@@ -101,7 +100,6 @@ const Checkout = (props) => {
     setShowOrderConfirmation(true);
     setOpenModal(false);
   };
-
 
   if (showOrderConfirmation) {
     return <OrderConfirmation />; // Conditionally render OrderConfirmation component
@@ -277,6 +275,14 @@ const Checkout = (props) => {
                               label="City"
                               {...FieldValues}
                             />
+                            <button
+                              type="button"
+                              className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-3"
+                              onClick={handleOpenModal}
+                            >
+                              Next
+                              <ChevronRightIcon className="w-4 h-4" />
+                            </button>
                           </>
                         ) : (
                           <>
@@ -316,15 +322,15 @@ const Checkout = (props) => {
                                 Quickly find your address
                               </label>
                             </div>
+                            <button
+                              className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-3"
+                              // onClick={handleOpenModal}
+                            >
+                              Next
+                              <ChevronRightIcon className="w-4 h-4" />
+                            </button>
                           </>
                         )}
-                        <button
-                          className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-3"
-                          onClick={handleOpenModal}
-                        >
-                          Next
-                          <ChevronRightIcon className="w-4 h-4" />
-                        </button>
                       </div>
 
                       <p className="text-red mt-2 text-[16px]">
