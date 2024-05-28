@@ -1,39 +1,30 @@
 import { Tab } from "@headlessui/react";
 import Image from "next/image";
-import profileImg from "../../../assets/images/profile-pic-needhelp.png";
-import InstantResult from "./InstantResult";
-import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import SetupShopPopup from "./SetupShopPopup";
+import profileImg from "../../../../assets/images/profile-pic-needhelp.png";
+import {
+  ArrowDownIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/24/solid";
 import { useState } from "react";
-import InstantPay from "./InstantPay";
-import LevelPay from "./LevelPay";
-import { useRouter } from "next/navigation";
 
+import { useRouter } from "next/navigation";
+import Step1 from "./Step1";
 
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function SetupShopTabs() {
-  const [openModal, setOpenModal] = useState(false);
-  const [showChooseMyClubComponent, setShowChooseMyClubComponent] =
-    useState(false);
-    const router = useRouter()
+export default function MainTabs() {
+  const router = useRouter();
   const [showoption, setShowOption] = useState(1);
+
   return (
     <>
-      {openModal && (
-        <SetupShopPopup
-          openModal={openModal}
-          setOpenModal={setOpenModal}
-          setShowChooseMyClubComponent={setShowChooseMyClubComponent}
-        />
-      )}
-
       <div className="w-full max-w-md px-2 py-6 sm:px-0">
         <Tab.Group>
-          <Tab.List className="mb-5 flex  rounded-md bg-[#f7f7f7] h-[30px]">
+          <Tab.List className="mb-5 flex rounded-md bg-[#f7f7f7] h-[30px]">
             <Tab
               className={({ selected }) =>
                 classNames(
@@ -122,9 +113,12 @@ export default function SetupShopTabs() {
               )}
             >
               <div className="max-w-[484px] mx-auto ">
-                <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  " onClick={(()=>{
-                  setOpenModal(true)
-                })}>
+                <button
+                  className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  "
+                  onClick={() => {
+                    setOpenModal(true);
+                  }}
+                >
                   <span className="ml-36">
                     setup
                     <span className="text-darkpink"> MY club</span>
@@ -140,79 +134,35 @@ export default function SetupShopTabs() {
                   />
                   <div>
                     <span className="text-t4 text-[10px] font-bold flex items-center gap-1">
-                      <span className="text-t5">STEP</span> 1{" "}
+                      <span className="text-t5">STEP</span> 5{" "}
                       <span className="text-t5">OF</span> 5
                     </span>
-                    {showoption == 3 ? (
-                      <h4 className="mb-0.5 text-t4 font-bold leading-tight">
-                        Do you want
-                        <br />
-                        <span className="text-darkpink">Level </span>
-                        Pay?
-                      </h4>
-                    ) : (
-                      <h4 className="mb-0.5 text-t4 font-bold leading-tight">
-                        Ready to <span className="text-darkpink">setup</span>
-                        <br /> your club?
-                      </h4>
-                    )}
+
+                    <h4 className="mb-0.5 text-t4 font-bold leading-tight">
+                      <span className="text-darkpink">Setup</span> your ZoomMe
+                      <br />
+                      and be ready to get paid
+                    </h4>
+
                     <p className="font-medium text-sm">
                       <span className="text-[9px]">with</span> Ashley Jackson
                     </p>
                   </div>
                 </div>
 
-                {showoption == 3 ? (
-                  <div className="text-t4 text-sm mt-[24px] font-[420] p-0 ">
-                    Level pay is optional. It is included with your membership
-                    if you want it.
-                  </div>
-                ) : (
-                  <div className="text-t4 text-sm mt-[24px] font-[420] p-0 ">
-                    Your personal{" "}
-                    <span className="tracking-[0.3px]">MY club</span> website is
-                    included with your MY lash membership.
-                  </div>
-                )}
-                <div className=" text-t3 text-sm mt-3 mb-6 text-[15px] font-[420] p-0">
-                  <p>No commitments</p>
-                  <p>No fees</p>
+                
+
+                <div className=" text-t4 text-sm mt-6 mb-4 text-[15px] font-[420] p-0">
+                  <p>Commissions are your paid to your ZoomMe on CoinZoom.</p>
+                  <p>CoinZoom is like Venmo or Paypal. You are paid in USD, not crypto 😊</p>
                 </div>
               </div>
-              <div className="mt-8">
-                {showoption == 1 ? (
-                  <InstantResult />
-                ) : showoption == 2 ? (
-                  <InstantPay />
-                ) : (
-                  <LevelPay />
-                )}
-              </div>
+              <div className="mt-8"><Step1 /> </div>
               {showoption == 1 ? (
                 <button
                   className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
                   onClick={() => {
-                    setShowOption(2);
-                  }}
-                >
-                  setup MY club
-                  <ChevronRightIcon className="w-4 h-4" />
-                </button>
-              ) : showoption == 2 ? (
-                <button
-                  className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
-                  onClick={() => {
-                    setShowOption(3);
-                  }}
-                >
-                  Next
-                  <ChevronRightIcon className="w-4 h-4" />
-                </button>
-              ) : showoption == 3 ? (
-                <button
-                  className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
-                  onClick={() => {
-                    router.push("/affiliate/setupshop/chooseyourwebsite");
+                    router.push("/affiliate/setupshop/chooseyourprofile");
                   }}
                 >
                   Next
@@ -220,17 +170,47 @@ export default function SetupShopTabs() {
                 </button>
               ) : null}
 
-              {showoption == 3 ? (
-                <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden mt-[90px]">
-                  <div className="max-w-[484px] mt-0 pl-6 pt-4 pb-4">
-                    <h6 className=" text-[13px] text-left">
+              <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden mt-[90px]">
+                <div className="max-w-[484px] mt-0 pl-6 pt-4 pb-4">
+                  <h6 className=" text-[13px] text-left ">
+                    <span className="font-bold">
                       MY personal sales commission
-                      <br />
-                      28%
+                    </span>
+                    <br />
+                    28%
+                  </h6>
+                  <div className="w-full max-w-[400px] mt-6">
+                    <hr />
+                  </div>
+                  <div className="max-w-[484px] mt-0 pt-4 ">
+                    <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
+                      <span>
+                        <p className="font-bold">MY Level Pay</p>
+                        Activated
+                      </span>
+                      <span className="flex mr-6 text-blue">
+                        <p>Change</p>
+                        <ChevronDownIcon className="w-3 h-4 ml-[3px] mt-2" />
+                      </span>
+                    </h6>
+                  </div>
+                  <div className="w-full max-w-[400px] mt-6">
+                    <hr />
+                  </div>
+                  <div className="max-w-[484px] mt-0 pt-4 py-4">
+                    <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
+                      <span>
+                        <p className="font-bold">MY website name</p>
+                        Jancy.choosemy.club
+                      </span>
+                      <span className="flex mr-6 text-blue">
+                        <p>Change</p>
+                        <ChevronDownIcon className="w-3 h-4 ml-[3px] mt-2" />
+                      </span>
                     </h6>
                   </div>
                 </div>
-              ) : null}
+              </div>
             </Tab.Panel>
             <Tab.Panel
               className={classNames(
