@@ -23,7 +23,7 @@ export default function Main() {
         <div className="mx-auto flex container items-center py-[18px] px-4">
         
           <div
-            onClick={toggleModal}
+           
             className="inline-flex content-center gap-3 text-sm font-medium text-t4"
             
           >

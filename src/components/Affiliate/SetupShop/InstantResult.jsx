@@ -5,7 +5,7 @@ import TextCutt from "../../../assets/images/text-cutt-pattren.svg";
 
 const InstantResult = () => {
   return (
-    <div className="border rounded-xl h-[375px] w-[452px] shadow-shadow1 border-gray p-6 overflow-hidden">
+    <div className="border rounded-xl h-[375px] w-full shadow-shadow1 border-gray p-6 overflow-hidden">
       <div className="relative sm:py-10">
         <div className="flex justify-evenly pt-[63px]">
           <h5 className="text-t3 font-black ">

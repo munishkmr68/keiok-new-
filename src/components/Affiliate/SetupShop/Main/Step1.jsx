@@ -4,16 +4,19 @@ import profileImg from "../../../../assets/images/profile-pic-needhelp.png";
 import Inputbox from "@/components/inputbox";
 import GreenCheck from "../../../../assets/images/icons/check-with-green.svg";
 import RedCross from "../../../../assets/images/icons/red-cross.svg";
-import Coinzoom from "../../../../assets/images/icons/coinzoom-black.svg";
+import Coinzoom from "../../../../assets/images/icons/zoom.svg";
+import AppStore from "../../../../assets/images/icons/app-store.svg";
+import PlayStore from "../../../../assets/images/icons/play-store.svg";
+
 import _ from "lodash";
 export default function Step1() {
   const [clubName, setclubName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const validateclubName = (name) => {
     // Define your validation logic here
-    const validDomain = /^[a-zA-Z0-9]{3,30}$/;
+    const validDomain = /^[a-zA-Z0-9]{6,30}$/;
     if (!validDomain.test(name)) {
-      return "This name is already taken.  Please enter another one and try again";
+      return "We could not confirm your ZoomMe.  Please check and try again";
     }
     return "";
   };
@@ -60,27 +63,27 @@ export default function Step1() {
           </ol>
         </div>
 
-        {/* <div className="max-w-[484px] mt-0 px-6 mb-5">
+        <div className=" mt-0  mb-5">
           {errorMessage ? (
-            <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex text-left  ">
+            <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] mb-[30px] text-t4 flex text-left  ">
               <span className="mt-1 ">
                 <RedCross />
               </span>
               <span className="text-sm ml-3">{errorMessage}</span>
             </button>
           ) :clubName !=""? (
-            <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center   ">
+            <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] mb-[30px] text-t4 flex items-center   ">
               <span className="mt-1 ">
                 <GreenCheck />
               </span>
               <span className="text-sm ml-3">
-              Your shop name has been successfully added
+              Your ZoomMe has been successfully added
               </span>
             </button>
           ):null
           
           }
-        </div> */}
+        </div>
 
         <div className="flex flex-col relative">
           {/* Removed password field and only mapping email field */}
@@ -109,12 +112,41 @@ export default function Step1() {
             )
           )}
         </div>
-        <div className=" mt-8 flex justify-center   ">
+        <div className=" mt-8 flex justify-center gap-2  ">
           <h6 className=" text-[22px] font-[420] text-t2 text-left">Get</h6>
-          <div className="m-2 ">
+          <div>
             <Coinzoom />
           </div>
         </div>
+        <div className=" mt-6 flex justify-center gap-2  ">
+          <AppStore />
+          <PlayStore />
+        </div>
+        <div className="border rounded-xl shadow-shadow1 text-center border-gray  overflow-hidden mt-[52px]">
+          <h6 className="pt-6 text-[22px] font-[450] text-darkpink">MY shop</h6>
+
+          <h6 className="text-base text-t2 font-[420] sm:text-[14px] ">
+            Affiliate agreement
+          </h6>
+
+          <div className="flex flex-wrap gap-2 mt-3 mb-6 justify-center">
+            <span className="w-5 ">
+              <input
+                id="brandaffiliate"
+                className="accent-blue"
+                type="checkbox"
+                name="brandAgreement"
+              />
+            </span>
+            <label
+              htmlFor="brandaffiliate"
+              className="text-t2  text-base leading-[20px]"
+            >
+              I have <span className="text-blue">read</span> & agree
+            </label>
+          </div>
+        </div>
+        
       </div>
     </>
   );

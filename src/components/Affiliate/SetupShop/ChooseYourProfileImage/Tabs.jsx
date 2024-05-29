@@ -264,7 +264,7 @@ export default function ChooseYourProfileImageTabs() {
                     28%
                   </h6>
                   <div className="w-full max-w-[400px] mt-6">
-                    <hr />
+                     <hr className="text-gray" />
                   </div>
                   <div className="max-w-[484px] mt-0 pt-4 ">
                     <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
@@ -279,7 +279,7 @@ export default function ChooseYourProfileImageTabs() {
                     </h6>
                   </div>
                   <div className="w-full max-w-[400px] mt-6">
-                    <hr />
+                     <hr className="text-gray" />
                   </div>
                   <div className="max-w-[484px] mt-0 pt-4">
                     <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
@@ -294,7 +294,7 @@ export default function ChooseYourProfileImageTabs() {
                     </h6>
                   </div>
                   <div className="w-full max-w-[400px] mt-6">
-                    <hr />
+                     <hr className="text-gray" />
                   </div>
                   <div className="max-w-[484px] mt-0 pt-4 py-4">
                     <h6 className=" text-[13px] text-left flex flex-2 justify-between ">

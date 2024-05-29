@@ -1,16 +1,17 @@
-import { Tab } from "@headlessui/react";
+import { Disclosure, Tab } from "@headlessui/react";
 import Image from "next/image";
 import profileImg from "../../../../assets/images/profile-pic-needhelp.png";
 import {
   ArrowDownIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  LockClosedIcon,
+  PlusIcon,
 } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
 import { useRouter } from "next/navigation";
 import Step1 from "./Step1";
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -115,9 +116,7 @@ export default function MainTabs() {
               <div className="max-w-[484px] mx-auto ">
                 <button
                   className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  "
-                  onClick={() => {
-                    setOpenModal(true);
-                  }}
+                 
                 >
                   <span className="ml-36">
                     setup
@@ -150,26 +149,58 @@ export default function MainTabs() {
                   </div>
                 </div>
 
-                
-
                 <div className=" text-t4 text-sm mt-6 mb-4 text-[15px] font-[420] p-0">
                   <p>Commissions are your paid to your ZoomMe on CoinZoom.</p>
-                  <p>CoinZoom is like Venmo or Paypal. You are paid in USD, not crypto 😊</p>
+                  <p>
+                    CoinZoom is like Venmo or Paypal. You are paid in USD, not
+                    crypto 😊
+                  </p>
                 </div>
               </div>
-              <div className="mt-8"><Step1 /> </div>
+              <div className="mt-8">
+                <Step1 />{" "}
+              </div>
               {showoption == 1 ? (
                 <button
                   className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
                   onClick={() => {
-                    router.push("/affiliate/setupshop/chooseyourprofile");
+                    router.push("/affiliate/setupshop/review");
                   }}
                 >
-                  Next
+                  Secure Checkout
                   <ChevronRightIcon className="w-4 h-4" />
                 </button>
               ) : null}
-
+              <div className="mt-[90px] mb-[90px] ">
+                <Disclosure>
+                  {({ open }) => (
+                    <>
+                      <Disclosure.Button className="disclosure-button"></Disclosure.Button>
+                    </>
+                  )}
+                </Disclosure>
+                <Disclosure>
+                  {({ open }) => (
+                    <>
+                      <Disclosure.Button className="disclosure-button">
+                        <span className="text-t4 text-[15px]">
+                          FAQ for ZoomMe
+                        </span>
+                        <PlusIcon
+                          className={`${open ? "hidden" : "block"} h-5 w-5`}
+                        />
+                        
+                      </Disclosure.Button>
+                      <Disclosure.Panel className="py-4 border-b border-gray">
+                        Sed commodo tincidunt finibus. Proin volutpat
+                        sollicitudin congue. Nullam fringilla erat quam, vel
+                        tincidunt mauris commodo vel. Integer vestibulum sapien
+                        quis justo efficitur mollis
+                      </Disclosure.Panel>
+                    </>
+                  )}
+                </Disclosure>
+              </div>
               <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden mt-[90px]">
                 <div className="max-w-[484px] mt-0 pl-6 pt-4 pb-4">
                   <h6 className=" text-[13px] text-left ">
@@ -180,7 +211,7 @@ export default function MainTabs() {
                     28%
                   </h6>
                   <div className="w-full max-w-[400px] mt-6">
-                    <hr />
+                    <hr className="text-gray" />
                   </div>
                   <div className="max-w-[484px] mt-0 pt-4 ">
                     <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
@@ -195,13 +226,47 @@ export default function MainTabs() {
                     </h6>
                   </div>
                   <div className="w-full max-w-[400px] mt-6">
-                    <hr />
+                     <hr className="text-gray" />
                   </div>
-                  <div className="max-w-[484px] mt-0 pt-4 py-4">
+                  <div className="max-w-[484px] mt-0 pt-4 ">
                     <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
                       <span>
                         <p className="font-bold">MY website name</p>
                         Jancy.choosemy.club
+                      </span>
+                      <span className="flex mr-6 text-blue">
+                        <p>Change</p>
+                        <ChevronDownIcon className="w-3 h-4 ml-[3px] mt-2" />
+                      </span>
+                    </h6>
+                  </div>
+                  <div className="w-full max-w-[400px] mt-6">
+                     <hr className="text-gray" />
+                  </div>
+                  <div className="max-w-[484px] mt-0 pt-4 ">
+                    <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
+                      <span>
+                        <p className="font-bold">MY club name</p>
+                        Jancy Wade
+                      </span>
+                      <span className="flex mr-6 text-blue">
+                        <p>Change</p>
+                        <ChevronDownIcon className="w-3 h-4 ml-[3px] mt-2" />
+                      </span>
+                    </h6>
+                  </div>
+                  <div className="w-full max-w-[400px] mt-6">
+                     <hr className="text-gray" />
+                  </div>
+                  <div className="max-w-[484px] mt-0 pt-4 py-4 pb-6">
+                    <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
+                      <span>
+                        <p className="font-bold">MY profile image</p>
+                        <Image
+                          className="w-[42px] h-[42px] rounded-full mt-3"
+                          src={profileImg}
+                          alt="user-img"
+                        />
                       </span>
                       <span className="flex mr-6 text-blue">
                         <p>Change</p>
