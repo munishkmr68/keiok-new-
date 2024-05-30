@@ -1,40 +1,30 @@
-import { Tab } from "@headlessui/react";
+import { Disclosure, Tab } from "@headlessui/react";
 import Image from "next/image";
-import profileImg from "../../../assets/images/profile-pic-needhelp.png";
-import InstantResult from "./InstantResult";
-import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import SetupShopPopup from "./SetupShopPopup";
+import profileImg from "../../../../assets/images/profile-pic-needhelp.png";
+import {
+  ArrowDownIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+  LockClosedIcon,
+  PlusIcon,
+} from "@heroicons/react/24/solid";
 import { useState } from "react";
-import InstantPay from "./InstantPay";
-import LevelPay from "./LevelPay";
+
 import { useRouter } from "next/navigation";
 import MyClubTab from "./MyClubTab";
-
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function SetupShopTabs() {
-  const [openModal, setOpenModal] = useState(false);
-  const [showChooseMyClubComponent, setShowChooseMyClubComponent] =
-    useState(false);
-    const router = useRouter()
-  const [showoption, setShowOption] = useState(1);
+export default function LeaveTabs() {
+  const router = useRouter();
+
   return (
     <>
-      {openModal && (
-        <SetupShopPopup
-          openModal={openModal}
-          setOpenModal={setOpenModal}
-          setShowChooseMyClubComponent={setShowChooseMyClubComponent}
-        />
-      )}
-
       <div className="w-full max-w-md px-2 py-6 sm:px-0">
         <Tab.Group>
-          <Tab.List className="mb-5 flex  rounded-md bg-[#f7f7f7] h-[30px]">
+          <Tab.List className="mb-5 flex rounded-md bg-[#f7f7f7] h-[30px]">
             <Tab
               className={({ selected }) =>
                 classNames(
@@ -122,10 +112,8 @@ export default function SetupShopTabs() {
                 "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
-                 <div className="max-w-[484px] mx-auto ">
-                 <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  " onClick={(()=>{
-                  setOpenModal(true)
-                })}>
+              <div className="max-w-[484px] mx-auto ">
+                <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  ">
                   <span className="ml-36">
                     setup
                     <span className="text-darkpink"> MY club</span>
@@ -133,9 +121,9 @@ export default function SetupShopTabs() {
 
                   <ChevronDownIcon className="w-5 h-5 " />
                 </button>
-                 </div>
-                 <MyClubTab/>
-         
+              </div>
+
+              <MyClubTab />
             </Tab.Panel>
             <Tab.Panel
               className={classNames(
