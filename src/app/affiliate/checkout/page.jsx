@@ -1,6 +1,6 @@
 // Home.jsx
 "use client";
-import Step1 from "@/components/Affiliate/Checkout/SetupCard";
+import Step1 from "@/components/Affiliate/Checkout";
 import Step2 from "@/components/Affiliate/Checkout";
 import Step3 from "@/components/GettingStartedFlow/step3";
 import Step4 from "@/components/GettingStartedFlow/step4";

@@ -33,6 +33,7 @@ const OrderConfrimation = () => {
   const handleOrderSummaryEditable = () => {
     setShowOrderSummaryEditable(true);
     setShowReviewDeliveryInfo(false);
+    setShowReviewDeliveryInfo(false);
   };
 
 
@@ -57,7 +58,7 @@ const OrderConfrimation = () => {
     return <ReviewDeliveryInfo onOrderSummaryEditable={handleOrderSummaryEditable} onNext={handleNextClick} />;
   }
   if (showSetupCard) {
-    return <SetupCard />;
+    return <SetupCard onOrderSummaryEditable={handleOrderSummaryEditable} />;
   }
 
   return (
