@@ -3,15 +3,18 @@
 import Menu from "@/components/menu";
 import Image from "next/image";
 import React, { useState } from "react";
-import clipart from "../../../../assets/images/clipart-img.png";
+import clipart from "../../../assets/images/clipart-img.png";
+import profileImg from "../../../assets/images/profile-pic-needhelp.png";
+
 import EncryptionPolicy from "@/components/EncryptionPolicy";
 import NeedHelp from "@/components/NeedHelp";
-import LashesIcon from "../../../../assets/images/icons/lashes.svg";
-import SubscribeIcone from "../../../../assets/images/icons/subscribe.svg";
-import CheckmarkIcon from "../../../../assets/images/icons/checkmark.svg";
+import LashesIcon from "../../../assets/images/icons/lashes.svg";
+import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
+import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
 import Footer from "@/common/Footer";
-import LeaveTabs from "./Tabs";
-export default function Leave() {
+import MyShopTabs from "./Tabs";
+// import LeaveTabs from "./Tabs";
+export default function MyShop() {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -47,23 +50,13 @@ export default function Leave() {
 
       <div className="w-full mx-auto  ">
         <div className="flex flex-col items-center gap-0.5 px-4">
-       <LeaveTabs/>
+       <MyShopTabs/>
         </div>
         <div className="max-w-[484px] mx-auto px-4 mb-3">
           <div className="mt-[250px] mb-[120px]">
             <EncryptionPolicy />
           </div>
-          <div className="flex items-center gap-4">
-            <Image
-              className="w-[140px] h-[140px] rounded-full"
-              src={clipart}
-              alt="user-img"
-            />
-            <div>
-              <h6 className="mb-0.5 text-t4 font-bold">Need some help?</h6>
-              <p className="text-t4 text-sm font-medium">hello@mylash.com</p>
-            </div>
-          </div>
+          <NeedHelp/>
         </div>
         <div className="bg-pink">
           <div className="max-w-[484px] mx-auto px-4 py-8">
