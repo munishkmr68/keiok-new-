@@ -1,48 +1,41 @@
 import { Tab } from "@headlessui/react";
 import Image from "next/image";
+import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import profileImg from "../../../../assets/images/profile-pic-needhelp.png";
-import {
-  ArrowDownIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/solid";
-import { useState } from "react";
+import clipart from "../../../../assets/images/clipart-img.png";
 
-import Step2 from "./Step2";
+import Camera from "../../../../assets/images/icons/camera.svg";
+
 import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ChooseYourWebsiteTabs() {
-  const [openModal, setOpenModal] = useState(false);
-  const [showChooseMyClubComponent, setShowChooseMyClubComponent] =
-    useState(false);
-  const [showoption, setShowOption] = useState(1);
-  const [websiteName, setWebsiteName] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+export default function ChooseYourProfileImageTabs() {
   const router = useRouter();
-  const validateWebsiteName = (name) => {
-    // Define your validation logic here
-    const validDomain = /^[a-zA-Z0-9]+\.choosemy\.club$/;
-    if (!validDomain.test(name)) {
-      return "This name is already taken.  Please enter another one and try again";
-    }
-    return "";
+  
+  const [photoName, setPhotoName] = useState(null);
+  const [photoPreview, setPhotoPreview] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    // setPhotoName(file.name);
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setPhotoPreview(e.target.result);
+    };
+    reader.readAsDataURL(file);
   };
 
-  const handleInputChange = (event) => {
-    const value = event.target.value;
-    setWebsiteName(value);
-    const error = validateWebsiteName(value);
-    setErrorMessage(error);
-  };
   return (
     <>
       <div className="w-full max-w-md px-2 py-6 sm:px-0">
         <Tab.Group>
-          <Tab.List className="mb-5 flex  rounded-md bg-[#f7f7f7] h-[30px]">
+          <Tab.List className="mb-5 flex rounded-md bg-[#f7f7f7] h-[30px]">
             <Tab
               className={({ selected }) =>
                 classNames(
@@ -131,12 +124,7 @@ export default function ChooseYourWebsiteTabs() {
               )}
             >
               <div className="max-w-[484px] mx-auto ">
-                <button
-                  className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  "
-                  onClick={() => {
-                    setOpenModal(true);
-                  }}
-                >
+                <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  ">
                   <span className="ml-36">
                     setup
                     <span className="text-darkpink"> MY club</span>
@@ -152,13 +140,13 @@ export default function ChooseYourWebsiteTabs() {
                   />
                   <div>
                     <span className="text-t4 text-[10px] font-bold flex items-center gap-1">
-                      <span className="text-t5">STEP</span> 2{" "}
+                      <span className="text-t5">STEP</span> 4{" "}
                       <span className="text-t5">OF</span> 5
                     </span>
 
                     <h4 className="mb-0.5 text-t4 font-bold leading-tight">
                       <span className="text-darkpink">Choose</span> your
-                      <br /> website name
+                      <br /> profile image
                     </h4>
 
                     <p className="font-medium text-sm">
@@ -168,7 +156,7 @@ export default function ChooseYourWebsiteTabs() {
                 </div>
 
                 <div className="text-t4 text-sm mt-[24px] font-[420] p-0 ">
-                  You can change your website name anytime.
+                  You can change your profile image anytime.
                 </div>
 
                 <div className=" text-t3 text-sm mt-3 mb-6 text-[15px] font-[420] p-0">
@@ -176,28 +164,98 @@ export default function ChooseYourWebsiteTabs() {
                   <p>No fees</p>
                 </div>
               </div>
-              <div className="mt-8">
-                <Step2
-                  handleInputChange={handleInputChange}
-                  websiteName={websiteName}
-                  setWebsiteName={setWebsiteName}
-                  errorMessage={errorMessage}
-                />
-              </div>
-              {showoption == 1 ? (
-                <button
-                  className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
-                  onClick={() => {
-                    router.push("/affiliate/setupshop/chooseyourshop");
+              <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden mt-4">
+                <div className="max-w-[484px] mt-0 pl-6 pt-4">
+                  <h6 className=" text-[13px] text-left">Example:</h6>
+                </div>
+                <li className="flex flex-col gap-2 mt-3 pl-6 pb-4 text-t4">
+                  <span className="text-base sm:text-[14px] font-medium">
+                    <span className="text-darkpink">MY profile image is</span>
+                  </span>
+                 { !photoPreview ?<Image
+                    className="w-[35px] h-[35px] rounded-full"
+                    src={profileImg}
+                    alt="user-img"
+                  />:<span
+                  className="block w-[35px] h-[35px] rounded-full "
+                  style={{
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center center",
+                    backgroundImage: `url(${photoPreview})`,
                   }}
-                >
-                  Next
-                  <ChevronRightIcon className="w-4 h-4" />
-                </button>
-              ) : null}
+                 
+                ></span>}
+                </li>
+              </div>
+              <div className="border rounded-xl  shadow-shadow1 border-gray  overflow-hidden mt-4 ">
+              <div className=" mt-0 pl-6 pt-5">
+              <span className="text-[18px] text-t4 font-[420]">
+                    <span className="text-darkpink">Choose </span>
+                    your profile image
+                  </span>
+                </div>
+                {/* Photo File Input */}
+
+                <input
+                  type="file"
+                  className="hidden "
+                  ref={fileInputRef}
+                  onChange={handleFileChange}
+                />
+
+                <div className="text-center mt-6 flex items-center gap-4 ">
+                  {/* Current Profile Photo */}
+                  <div
+                    className=" relative"
+                    style={{ display: !photoPreview ? "block" : "none" }}
+                  >
+                    <Image
+                      className="w-[100px] h-[100px] ml-6 mb-6 rounded-full shadow  "
+                      src={clipart}
+                      alt="Current Profile"
+                      onClick={() => fileInputRef.current.click()}
+                    />
+                    <div className=" absolute top-1 left-24  ">
+                      <Camera />
+                    </div>
+                  </div>
+                  {/* New Profile Photo Preview */}
+                  <div
+                    className=" relative"
+                    style={{ display: photoPreview ? "block" : "none" }}
+                  >
+                    <span
+                      className="block w-[100px] h-[100px] rounded-full ml-6 mb-6 shadow"
+                      style={{
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center center",
+                        backgroundImage: `url(${photoPreview})`,
+                      }}
+                      onClick={() => fileInputRef.current.click()}
+                    ></span>
+                    <div className=" absolute top-1 left-24  ">
+                      <Camera />
+                    </div>
+                  </div>
+                  <div className="text-blue" onClick={() => fileInputRef.current.click()}>
+                    Edit Image
+                  </div>
+                </div>
+              </div>
+              <button
+                className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
+                onClick={() => {
+                 router.push("/affiliate/setupshop/main")
+                }}
+              >
+                Next
+                <ChevronRightIcon className="w-4 h-4" />
+              </button>
 
               <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden mt-[90px]">
-                <div className="max-w-[484px] mt-0 pl-6 pt-4 pb-4">
+                <div className="max-w-[484px] mt-0 pl-6 pt-4 ">
                   <h6 className=" text-[13px] text-left ">
                     <span className="font-bold">
                       MY personal sales commission
@@ -208,11 +266,41 @@ export default function ChooseYourWebsiteTabs() {
                   <div className="w-full max-w-[400px] mt-6">
                      <hr className="text-gray" />
                   </div>
-                  <div className="max-w-[484px] mt-0 pt-4 pb-4">
+                  <div className="max-w-[484px] mt-0 pt-4 ">
                     <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
                       <span>
                         <p className="font-bold">MY Level Pay</p>
                         Activated
+                      </span>
+                      <span className="flex mr-6 text-blue">
+                        <p>Change</p>
+                        <ChevronDownIcon className="w-3 h-4 ml-[3px] mt-2" />
+                      </span>
+                    </h6>
+                  </div>
+                  <div className="w-full max-w-[400px] mt-6">
+                     <hr className="text-gray" />
+                  </div>
+                  <div className="max-w-[484px] mt-0 pt-4">
+                    <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
+                      <span>
+                        <p className="font-bold">MY website name</p>
+                        Jancy.choosemy.club
+                      </span>
+                      <span className="flex mr-6 text-blue">
+                        <p>Change</p>
+                        <ChevronDownIcon className="w-3 h-4 ml-[3px] mt-2" />
+                      </span>
+                    </h6>
+                  </div>
+                  <div className="w-full max-w-[400px] mt-6">
+                     <hr className="text-gray" />
+                  </div>
+                  <div className="max-w-[484px] mt-0 pt-4 py-4">
+                    <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
+                      <span>
+                        <p className="font-bold">MY club name</p>
+                        Jancy Wade
                       </span>
                       <span className="flex mr-6 text-blue">
                         <p>Change</p>

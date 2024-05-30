@@ -21,6 +21,7 @@ const Choose = () => {
     <>
      {openModal && <ChoosePopUp openModal={openModal} setOpenModal={setOpenModal} setShowChooseMyClubComponent={setShowChooseMyClubComponent} />}
     {!showChooseMyClubComponent? <> <div className="max-w-[484px] mx-auto px-4 pt-8">
+      
         <div className="flex flex-col items-center gap-0.5">
         <Image
             className="w-[230px] mb-3"
