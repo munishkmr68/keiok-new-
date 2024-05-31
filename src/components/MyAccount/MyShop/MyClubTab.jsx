@@ -12,8 +12,9 @@ import ChangeWebsiteName from "./ChangeWebsiteName";
 import ChangeClubName from "./ChangeClubName";
 import ChangeZoomMe from "./ChangeZoomMe";
 import ChangeProfileImage from "./ChangeProfileImage";
+import ChangeLevelPay from "./ChangeLevelPay";
 
-export default function MyClubTab() {
+export default function MyClubTab(props) {
   const [showWebsite, setShowWebsite] = useState(false);
   const [website, setWebsite] = useState("");
   const [showClub, setShowClub] = useState(false);
@@ -22,12 +23,15 @@ export default function MyClubTab() {
   const [zoom, setZoom] = useState("");
   const [showImage, setShowImage] = useState(false);
   const [photoPreview, setPhotoPreview] = useState(null);
+  const [showLevel, setShowLevel] = useState(false);
+  const [level, setLevel] = useState("Activated");
   return (
     <>
+   
       <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden mt-[30px]">
         <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden ">
           <div className="max-w-[484px] mt-0 pl-6 pt-4 pb-4">
-            <div>
+         {props?.value=="My shop details" ? (<> <div>
               <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
                 <span>
                   <p className="font-bold">MY profile image</p>
@@ -182,7 +186,53 @@ export default function MyClubTab() {
                   </div>
                 </>
               )}
-            </div>
+            </div></>):props?.value=="MY commissions" ?(<>
+            
+            
+              <h6 className=" text-[13px] text-left ">
+                      <span className="font-bold">
+                        MY personal sales commission
+                      </span>
+                      <br />
+                      28%
+                    </h6>
+                    <div className="w-full max-w-[400px] mt-6">
+                      <hr className="text-gray" />
+                    </div>
+                    <div className="max-w-[484px] mt-0 pt-4 ">
+                      <h6 className=" text-[13px] text-left flex flex-2 justify-between ">
+                        <span>
+                          <p className="font-bold">MY Level Pay</p>
+                          {level}
+                        </span>
+                        <span
+                          className="flex mr-6 text-blue"
+                          onClick={() => {
+                            setShowLevel(!showLevel);
+                          }}
+                        >
+                          <p>Change</p>
+                          {!showLevel ? (
+                            <ChevronDownIcon className="w-3 h-4 ml-[3px] mt-2" />
+                          ) : (
+                            <ChevronUpIcon className="w-3 h-4 ml-[3px] mt-2" />
+                          )}
+                        </span>
+                      </h6>
+                      {showLevel && (
+                        <>
+                          <div className="pr-6 sm:p-0">
+                            <ChangeLevelPay
+                              setLevel={setLevel}
+                              level={level}
+                              setShowLevel={setShowLevel}
+                            />
+                          </div>
+                        </>
+                      )}
+                    </div>
+            
+            </>):null}
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ import { useState } from "react";
 
 import { useRouter } from "next/navigation";
 import MyClubTab from "./MyClubTab";
+import DropDownPopUp from "./DropDownPopUp";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,9 +19,19 @@ function classNames(...classes) {
 
 export default function MyShopTabs() {
   const router = useRouter();
+  const [openModal, setOpenModal] = useState(false);
+const [value,setValue]=useState("My shop details")
 
   return (
     <>
+       {openModal && (
+        <DropDownPopUp
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          setValue={setValue}
+          value={value}
+        />
+      )}
       <div className="w-full max-w-md px-2 py-6 sm:px-0">
         <Tab.Group>
           <Tab.List className="mb-5 flex rounded-md bg-[#f7f7f7] h-[30px]">
@@ -112,9 +123,11 @@ export default function MyShopTabs() {
               )}
             >
               <div className="max-w-[484px] mx-auto ">
-                <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  ">
+                <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  " onClick={(()=>{
+                  setOpenModal(true)
+                })}>
                   <span className="ml-36">
-                    MY club details
+                   { value||"MY club details"}
                    
                   </span>
 
@@ -122,7 +135,7 @@ export default function MyShopTabs() {
                 </button>
               </div>
 
-              <MyClubTab />
+              <MyClubTab value={value} />
             </Tab.Panel>
             <Tab.Panel
               className={classNames(
