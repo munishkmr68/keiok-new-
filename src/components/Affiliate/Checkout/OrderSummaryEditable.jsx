@@ -62,7 +62,7 @@ const OrderSummaryEditable = ({ onClose }) => {
               <LockClosedIcon className="size-3 relative -top-[1px]" /> REVIEW
             </span>
             <h4 className="mb-0.5 text-t4 font-bold leading-tight">
-              Let's make sure
+              Let`&apos;`s make sure
               <br />
               everything is <span className="text-darkpink">right</span>
             </h4>

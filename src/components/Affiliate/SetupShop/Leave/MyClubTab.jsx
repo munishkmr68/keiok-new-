@@ -28,7 +28,7 @@ export default function MyClubTab() {
         </div>
 
         <div className="text-[15px] text-t4 text-sm mt-6 font-[420] p-0 ">
-          Your personal 'MY club' website is included with your MY lash
+          Your personal `&apos;`MY club`&apos;` website is included with your MY lash
           membership.
         </div>
 

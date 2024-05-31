@@ -107,7 +107,7 @@ const OrderConfrimation = () => {
           <ChevronRightIcon className="w-4 h-4" />
         </button>
         <p className="font-medium text-[15px] text-blue mt-3 mb-14 underline text-center">
-          I'll do it later
+          I`&apos;`ll do it later
         </p>
         <div className="border rounded-xl shadow-shadow1 border-gray p-6">
           <h4 className="font-bold text-t4 text-left">
