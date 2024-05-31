@@ -33,7 +33,7 @@ export default function SetupShopTabs() {
         />
       )}
 
-      <div className="w-full max-w-md px-2 py-6 sm:px-0">
+      <div className="w-full max-w-md px-4 py-6 sm:px-0">
         <Tab.Group>
           <Tab.List className="mb-5 flex  rounded-md bg-[#f7f7f7] h-[30px]">
             <Tab
