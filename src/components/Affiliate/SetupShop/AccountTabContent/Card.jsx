@@ -29,6 +29,8 @@ const Card = ({ onClose }) => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
   const [showLoaderModal, setShowLoaderModal] = useState(false);
   const [openGetOrderModal, setOpenGetOrderModal] = useState(false);
+  const [openRescheduleModal, setOpenRescheduleModal] = useState(false);
+
 
   const handleLoader = () => {
     setShowLoaderModal(true);
@@ -41,6 +43,18 @@ const Card = ({ onClose }) => {
   const handleRadioChange = (event) => {
     setSelectedPaymentMethod(event.target.value);
   };
+
+  const handleCloseRescheduleModal = () => {
+    setOpenRescheduleModal(false);
+  };
+
+
+  const handleReschedule = () => {
+    setOpenGetOrderModal(false);
+    setOpenRescheduleModal(true);
+  };
+
+
 
   return (
     <>
@@ -582,6 +596,9 @@ const Card = ({ onClose }) => {
       </div>
 
       {openGetOrderModal && <GetOrderModal onClose={() => setOpenGetOrderModal(false)} />}
+      {openRescheduleModal && (
+        <RescheduleModal onClose={handleCloseRescheduleModal} />
+      )}
     </>
   );
 };

@@ -12,13 +12,21 @@ const listingspan = {
   width: "calc(100% - 34px)",
 };
 
-export default function GetOrderModal({onClose}) {
+export default function GetOrderModal({ onClose, onReschedule }) {
+
+
+
+  
   let [isOpen, setIsOpen] = useState(true);
 
   function closeModal() {
     onClose(); 
   }
 
+  function handleSendOrder() {
+    closeModal();
+    onReschedule();
+  }
 
   return (
     <>
@@ -64,7 +72,7 @@ export default function GetOrderModal({onClose}) {
 
                   <button
                     className="primary-button"
-                    onClick={closeModal}
+                    onClick={handleSendOrder}
                   >
                     Send this order now
                   </button>
