@@ -377,7 +377,7 @@ export default function ReviewTabs() {
               <button
                 className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
                 onClick={() => {
-                  router.push("/affiliate/setupshop/review");
+                  router.push("/affiliate/setupshop/success");
                 }}
               >
                 publish MY club

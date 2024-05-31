@@ -35,7 +35,7 @@ export default function Review() {
       </header>
 
       <div className="w-full mx-auto  ">
-        <div className="flex flex-col items-center gap-0.5">
+        <div className="flex flex-col items-center gap-0.5 px-4">
          <ReviewTabs/>
         </div>
         <div className="max-w-[484px] mx-auto px-4 mb-3">

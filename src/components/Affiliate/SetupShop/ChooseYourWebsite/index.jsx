@@ -39,7 +39,7 @@ export default function ChooseYourWebsite() {
       </header>
       
       <div className="w-full mx-auto  ">
-        <div className="flex flex-col items-center gap-0.5">
+        <div className="flex flex-col items-center gap-0.5 px-4">
         
       <ChooseYourWebsiteTabs/>
       </div>
