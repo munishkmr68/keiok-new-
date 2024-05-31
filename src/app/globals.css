@@ -49,19 +49,23 @@
   .primary-button-text-only {
     @apply text-blue;
   }
+  .pink-button {
+    @apply rounded-xl w-full bg-darkpink px-4 sm:px-6 py-[13px] text-white text-lg font-medium hover:bg-lightpink hover:text-t1 transition ease-in-out border-0 text-center;
+  }
+
   .dark-button {
-    @apply rounded-3xl w-full bg-t1 hover:bg-blue px-4 sm:px-6 py-[9px] text-white transition ease-in-out border-0;
+    @apply rounded-xl w-full bg-t1 font-medium hover:bg-blue px-4 sm:px-6 py-[9px] text-white transition ease-in-out border-0;
   }
   .dark-button-outlined {
-    @apply rounded-3xl w-full bg-white hover:bg-t1 border border-t1 px-4 sm:px-6 py-[9px] text-t1 hover:text-white transition ease-in-out;
+    @apply rounded-xl w-full bg-white font-medium hover:bg-t1 border border-t1 px-4 sm:px-6 py-[9px] text-t1 hover:text-white transition ease-in-out;
   }
 
   .tab-button {
-    @apply rounded-3xl w-full bg-white px-4 sm:px-6 py-[9px] text-blue transition ease-in-out border border-blue relative;
+    @apply rounded-xl w-full bg-white px-4 sm:px-6 py-[9px] text-blue transition ease-in-out border border-blue relative;
   }
 
   .tab-button-selected {
-    @apply rounded-3xl w-full bg-blue px-4 sm:px-6 py-[9px] text-white transition ease-in-out border border-blue z-10;
+    @apply rounded-xl w-full bg-blue px-4 sm:px-6 py-[9px] text-white transition ease-in-out border border-blue z-10;
   }
 
   .carousel-slider {
