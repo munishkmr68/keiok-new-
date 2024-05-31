@@ -4,7 +4,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 export default function ChangeDropdown({ onClick }) {
     return (
-        <div className="w-56 text-right">
+        <div className=" text-right">
             <Menu as="div" className="relative inline-block text-left">
                 <div>
                     <Menu.Button className="inline-flex w-full justify-center items-center text-blue text-xs" onClick={onClick}>

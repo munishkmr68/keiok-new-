@@ -59,8 +59,8 @@ const MyClub = () => {
         </li>
       </ul>
       <div className="bg-pink -mx-6 mt-[20px]">
-        <div className="px-4 py-2">
-          <div className="flex flex-col sm:flex-row justify-between gap-3">
+        <div className="px-4 py-3">
+          <div className="flex  justify-between gap-3">
             <div>
               <ul className="flex flex-col gap-0 sm:gap-1.5 ">
                 <li className="text-[10px] sm:text-xs text-t4">Price</li>

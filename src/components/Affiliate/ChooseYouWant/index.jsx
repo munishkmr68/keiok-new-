@@ -41,12 +41,12 @@ const Choose = () => {
       <div className="max-w-[485px] mx-auto px-4 mt-6">
         <div className="border rounded-xl shadow-shadow1 border-gray p-6 flex items-center relative">
           <Image
-            className="max-w-[300px] rounded-full mb-3"
+            className="max-w-[300px] rounded-full mb-3 -ml-6"
             src={subscribeLash}
             alt="lash-img"
           />
           <div className="">
-            <div className="absolute right-14 top-8">
+            <div className="absolute right-10 sm:right-14 top-8">
               <h6 className="text-[16px] leading-5">I subscribe</h6>
               <h6 className="text-[16px] leading-5"> because of our</h6>
               <h3 className="font-bold text-[22px] text-darkpink mb-2">
@@ -54,7 +54,7 @@ const Choose = () => {
               </h3>
             </div>
 
-            <div className="bottom-10 right-24 absolute">
+            <div className="bottom-10 right-16 sm:right-24 absolute">
               <h3 className="font-bold text-[22px] text-darkpink mb-2 leading-5">
                 Every 12 weeks
               </h3>

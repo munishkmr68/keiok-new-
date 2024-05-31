@@ -89,7 +89,7 @@ const ChoosePopUp = (props) => {
                               </h3>
                             </div>
 
-                            <div className="bottom-6 right-16 absolute">
+                            <div className="bottom-6 right-10 sm:right-16 absolute">
                               <h3 className="font-bold text-[22px] text-darkpink mb-2 leading-5">
                                 Every 12 weeks
                               </h3>

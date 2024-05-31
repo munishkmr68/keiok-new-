@@ -15,10 +15,8 @@ import {
   _dateFormatChange,
   _scrollToUp,
 } from "@/services/Methods/normalMethods";
-import ProductCard from "@/common/ProductCard";
 import { ShippingAddressValidationSchema } from "@/services/Methods/validationSchema";
 import CountryAndStateInputs from "@/common/inputs/CountryStateDropdown";
-import { OuterLoader } from "@/services/Methods/checkoutPayloads";
 import _ from "lodash";
 import Image from "next/image";
 import profileImg from "../../../assets/images/profile-pic-needhelp.png";
@@ -29,6 +27,8 @@ import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
 import Link from "next/link";
 import ConfirmAddressModal from "./ConfirmAddressModal";
 import OrderConfirmation from "./OrderConfrimation";
+import LashesIcon from "../../../assets/images/icons/lashes.svg";
+import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
 
 const InnerInputComp = ({
   name,
@@ -348,20 +348,37 @@ const Checkout = (props) => {
             </div>
             <NeedHelp />
           </div>
-          <div className="bg-pink">
-            <div className="max-w-[484px] mx-auto px-4 py-8">
-              <ul className="space-y-1 sm:text-base text-sm text-t4 font-medium">
-                <li className="flex items-center gap-2">
-                  <CheckmarkIcon className="w-4 h-4" />
-                  <span>It only works if you use it</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckmarkIcon className="w-4 h-4" />
-                  <span>Optional affiliate opportunity</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <div className="bg-pink mt-6">
+        <div className="max-w-[484px] mx-auto px-4 py-8">
+          <ul className="text-t4 space-y-2">
+            <li className="flex gap-2">
+              <LashesIcon className="w-6 h-6" />
+              <span className="text-base font-medium">
+                Natural LASHES
+                <br />+ BROWS
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <SubscribeIcone className="w-6 h-6" />
+              <span className="text-base font-medium">
+                Subscribe because of our <br />
+                Lash Cycle{" "}
+                <span className="text-blue text-base font-medium">
+                  Learn more
+                </span>
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <CheckmarkIcon className="w-6 h-6" />
+              <span className="text-base font-medium">
+                No commitments,
+                <br />
+                Cancel anytime
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
           <Footer />
           <GooglePlaceSearchPopup
