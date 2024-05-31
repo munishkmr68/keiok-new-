@@ -4,7 +4,6 @@ import Menu from "@/components/menu";
 import Image from "next/image";
 import React, { useState } from "react";
 import clipart from "../../../assets/images/clipart-img.png";
-import profileImg from "../../../assets/images/profile-pic-needhelp.png";
 
 import EncryptionPolicy from "@/components/EncryptionPolicy";
 import NeedHelp from "@/components/NeedHelp";
@@ -22,7 +21,6 @@ export default function MyShop() {
   };
   return (
     <>
-   
       <header className="sticky top-0 z-40 bg-white">
         <div className="mx-auto flex container items-center py-[18px] px-4">
           <div
@@ -43,53 +41,51 @@ export default function MyShop() {
             SHARE
           </button>
           <div>
-          <Menu />
+            <Menu />
           </div>
         </div>
       </header>
 
-      <div className="w-full mx-auto  ">
-        <div className="flex flex-col items-center gap-0.5 px-4">
-       <MyShopTabs/>
+      <MyShopTabs />
+
+      <div className="max-w-[484px] mx-auto px-4 mb-3">
+        <div className="mt-[250px] mb-[120px]">
+          <EncryptionPolicy />
         </div>
-        <div className="max-w-[484px] mx-auto px-4 mb-3">
-          <div className="mt-[250px] mb-[120px]">
-            <EncryptionPolicy />
-          </div>
-          <NeedHelp/>
-        </div>
-        <div className="bg-pink">
-          <div className="max-w-[484px] mx-auto px-4 py-8">
-            <ul className="text-t4 space-y-1">
-              <li className="flex gap-2">
-                <LashesIcon className="w-6 h-6" />
-                <span className="text-base sm:text-lg font-medium">
-                  Natural LASHES
-                  <br />+ BROWS
+        <NeedHelp />
+      </div>
+      <div className="bg-pink">
+        <div className="max-w-[484px] mx-auto px-4 py-8">
+          <ul className="text-t4 space-y-1">
+            <li className="flex gap-2">
+              <LashesIcon className="w-6 h-6" />
+              <span className="text-base sm:text-lg font-medium">
+                Natural LASHES
+                <br />+ BROWS
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <SubscribeIcone className="w-6 h-6" />
+              <span className="text-base sm:text-lg font-medium">
+                Subscribe because of our <br />
+                Lash Cycle{" "}
+                <span className="text-blue text-base sm:text-lg font-medium">
+                  Learn more
                 </span>
-              </li>
-              <li className="flex gap-2">
-                <SubscribeIcone className="w-6 h-6" />
-                <span className="text-base sm:text-lg font-medium">
-                  Subscribe because of our <br />
-                  Lash Cycle{" "}
-                  <span className="text-blue text-base sm:text-lg font-medium">
-                    Learn more
-                  </span>
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <CheckmarkIcon className="w-6 h-6" />
-                <span className="text-base sm:text-lg font-medium">
-                  No commitments,
-                  <br />
-                  Cancel anytime
-                </span>
-              </li>
-            </ul>
-          </div>
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <CheckmarkIcon className="w-6 h-6" />
+              <span className="text-base sm:text-lg font-medium">
+                No commitments,
+                <br />
+                Cancel anytime
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
+
       <Footer />
     </>
   );
