@@ -2,7 +2,7 @@
 import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import _ from "lodash";
 import moment from "moment";
-import Day from "./Day";
+// import Day from "./Day";
 
 const RescheduleModal = (props) => {
   const { _handleSteps, _handleReviewBillingDay, newBillingDay, autoshipOrders } = props;
@@ -26,7 +26,7 @@ const RescheduleModal = (props) => {
 
       <div className="flex gap-4 items-center">
         <div className="max-w-[172px] w-full">
-          <Day {...props} />
+          {/* <Day {...props} /> */}
         </div>
         <span className="text-t4">every 3 months</span>
       </div>

@@ -21,6 +21,7 @@ import Inputbox from "@/components/inputbox";
 import GoogleAutocomplete from "@/components/GoogleAutocomplete";
 import profileImg from "../../../../assets/images/profile-pic-needhelp.png";
 import GetOrderModal from "./GetOrderModal";
+import RescheduleModal from "./RescheduleModal";
 
 const Card = ({ onClose }) => {
   const [isEditingShipping, setIsEditingShipping] = useState(false);
@@ -29,8 +30,6 @@ const Card = ({ onClose }) => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
   const [showLoaderModal, setShowLoaderModal] = useState(false);
   const [openGetOrderModal, setOpenGetOrderModal] = useState(false);
-  const [openRescheduleModal, setOpenRescheduleModal] = useState(false);
-
 
   const handleLoader = () => {
     setShowLoaderModal(true);
@@ -43,18 +42,6 @@ const Card = ({ onClose }) => {
   const handleRadioChange = (event) => {
     setSelectedPaymentMethod(event.target.value);
   };
-
-  const handleCloseRescheduleModal = () => {
-    setOpenRescheduleModal(false);
-  };
-
-
-  const handleReschedule = () => {
-    setOpenGetOrderModal(false);
-    setOpenRescheduleModal(true);
-  };
-
-
 
   return (
     <>
@@ -595,10 +582,11 @@ const Card = ({ onClose }) => {
         <EncryptionPolicy />
       </div>
 
-      {openGetOrderModal && <GetOrderModal onClose={() => setOpenGetOrderModal(false)} />}
-      {openRescheduleModal && (
-        <RescheduleModal onClose={handleCloseRescheduleModal} />
+      {openGetOrderModal && (
+        <GetOrderModal onClose={() => setOpenGetOrderModal(false)} />
       )}
+
+      <RescheduleModal />
     </>
   );
 };

@@ -12,20 +12,15 @@ const listingspan = {
   width: "calc(100% - 34px)",
 };
 
-export default function GetOrderModal({ onClose, onReschedule }) {
-
-
-
-  
+export default function GetOrderModal({ onClose }) {
   let [isOpen, setIsOpen] = useState(true);
 
   function closeModal() {
-    onClose(); 
+    onClose();
   }
 
   function handleSendOrder() {
     closeModal();
-    onReschedule();
   }
 
   return (
@@ -69,13 +64,18 @@ export default function GetOrderModal({ onClose, onReschedule }) {
                     If you get your order now you’ll be charged immediately, and
                     you won’t be able to make any further changes to your order.
                   </p>
+                  <div className="flex flex-col gap-4">
+                    <button className="primary-button">
+                      Send this order now
+                    </button>
 
-                  <button
-                    className="primary-button"
-                    onClick={handleSendOrder}
-                  >
-                    Send this order now
-                  </button>
+                    <button
+                      className="primary-button-text-only text-darkpink sm:text-lg text-base font-bold"
+                      onClick={handleSendOrder}
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
