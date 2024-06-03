@@ -12,7 +12,8 @@ const listingspan = {
   width: "calc(100% - 34px)",
 };
 
-export default function GetOrderModal({ onClose }) {
+const GetOrderModal = ({ onClose, onSendOrder }) => {
+
   let [isOpen, setIsOpen] = useState(true);
 
   function closeModal() {
@@ -21,6 +22,11 @@ export default function GetOrderModal({ onClose }) {
 
   function handleSendOrder() {
     closeModal();
+  }
+
+  function handleSendOrder() {
+    onSendOrder(); // Call the function passed from the parent to open RescheduleModal
+    closeModal(); // Close the current modal
   }
 
   return (
@@ -65,10 +71,13 @@ export default function GetOrderModal({ onClose }) {
                     you won’t be able to make any further changes to your order.
                   </p>
                   <div className="flex flex-col gap-4">
-                    <button className="primary-button">
+                    <button
+                      type="button"
+                      className="primary-button"
+                      onClick={handleSendOrder}
+                    >
                       Send this order now
                     </button>
-
                     <button
                       className="primary-button-text-only text-darkpink sm:text-lg text-base font-bold"
                       onClick={handleSendOrder}
@@ -85,3 +94,6 @@ export default function GetOrderModal({ onClose }) {
     </>
   );
 }
+
+
+export default GetOrderModal;
