@@ -153,6 +153,7 @@ const Checkout = (props) => {
           <div className="max-w-[484px] mx-auto  px-4">
             <div className="border rounded-xl shadow-shadow1 border-gray p-6">
               <div className="space-y-2.5">
+                <h4 className="text-base text-center mb-4"> Express checkout</h4>
                 <button className="rounded-xl w-full flex items-center px-4 sm:px-6 gap-2.5 bg-t1 text-white py-3.5">
                   <span className="mx-auto">
                     <ApplePay />
@@ -177,7 +178,7 @@ const Checkout = (props) => {
               <p className="text-xs font-medium max-w-[274px] mx-auto text-center mt-3">
                 I <span className="text-darkpink">choose</span> to subscribe
                 because of <span className="text-darkpink">our</span> Lash Cycle
-                and I can <span className="text-darkpink">choose</span> to
+                and I can choose to
                 cancel anytime
               </p>
               <div class="flex items-center justify-between my-7">

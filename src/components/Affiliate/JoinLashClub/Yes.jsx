@@ -16,7 +16,7 @@ const Yes = () => {
               alt="user-img"
             />
             <p className="text-t4 text-center font-medium">
-              Made <span className="text-darkpink font-black">Clean</span> in
+              Made <span className="text-darkpink font-black">&apos;Clean&apos;</span> in
               <br />
               the USA
             </p>
