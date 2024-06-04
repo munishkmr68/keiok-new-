@@ -1,27 +1,16 @@
+"use client";
+import _ from "lodash";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import Close from "../../../../assets/images/icons/close-circle.svg";
 
-const checkicon = {
-  width: "24px",
-  height: "24px",
-};
+const CancelationCompleteModal = ({ onClose }) => {
+  const [isOpen, setIsOpen] = useState(true);
 
-const listingspan = {
-  width: "calc(100% - 34px)",
-};
-
-export default function GetOrderModal({ onClose }) {
-  let [isOpen, setIsOpen] = useState(true);
-
-  function closeModal() {
+  const closeModal = () => {
+    setIsOpen(false);
     onClose();
-  }
-
-  function handleSendOrder() {
-    closeModal();
-  }
-  
+  };
 
   return (
     <>
@@ -57,23 +46,23 @@ export default function GetOrderModal({ onClose }) {
                       onClick={closeModal}
                     />
                   </div>
-                  <div className="py-4  flex items-center justify-between gap-2 group">
-                    <h3 className="font-bold">Get your order now</h3>
-                  </div>
-                  <p className="mb-6 text-[15px] text-t4 font-medium">
-                    If you get your order now you’ll be charged immediately, and
-                    you won’t be able to make any further changes to your order.
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <button type="button" className="primary-button">
-                      Send this order now
-                    </button>
-                    <button
-                      className="primary-button-text-only text-darkpink sm:text-lg text-base font-bold"
-                      onClick={handleSendOrder}
-                    >
-                      Cancel
-                    </button>
+                  <div className="max-w-[484px] mx-auto px-4 mt-3">
+                    <h3 className="mb-4">
+                      Cancelation
+                      <span className="text-darkpink"> complete</span>
+                    </h3>
+                    <div className="text-t1 flex flex-col gap-2 font-medium">
+                    <p className="text-t4">Thank you for your business, Jancy.</p>
+                    <p>An email confirmation will be sent to:</p>
+                    <p>j .. e@gmail.com</p>
+                    </div>
+                    
+
+                    <div className="flex flex-col gap-3">
+                      <button type="button" className="primary-button mt-8">
+                        Done
+                      </button>
+                    </div>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -83,4 +72,6 @@ export default function GetOrderModal({ onClose }) {
       </Transition>
     </>
   );
-}
+};
+
+export default CancelationCompleteModal;

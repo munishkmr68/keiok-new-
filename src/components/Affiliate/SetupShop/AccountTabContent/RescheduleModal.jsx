@@ -1,33 +1,31 @@
 "use client";
-import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import _ from "lodash";
 import moment from "moment";
 import Day from "./Day";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import Close from "../../../../assets/images/icons/close-circle.svg";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
-const RescheduleModal = (props) => {
-  const {
-    _handleSteps,
-    _handleReviewBillingDay,
-    newBillingDay,
-    autoshipOrders,
-  } = props;
+const RescheduleModal = ({
+  onClose,
+  onConfirm,
+  _handleSteps,
+  _handleReviewBillingDay,
+  newBillingDay,
+  autoshipOrders,
+}) => {
+  const [isOpen, setIsOpen] = useState(true);
 
-  let [isOpen, setIsOpen] = useState(false);
-
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
+    onClose(); // Call onClose prop to handle modal close
+  };
 
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-40" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -52,15 +50,28 @@ const RescheduleModal = (props) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <div className="max-w-[484px] mx-auto px-4 pt-12">
-                    <span
-                      className="w-[42px] h-[42px] rounded-full border border-blue text-blue flex items-center justify-center  cursor-pointer"
-                      onClick={() => _handleSteps("back")}
-                    >
-                      <ChevronLeftIcon className="w-4 h-4 stroke-current" />
-                    </span>
-                    <h3 className="mb-4 mt-8">
-                      Choose a new delivery & billing day
+                  <div>
+                    <Close
+                      className="mb-1 ml-auto cursor-pointer"
+                      onClick={closeModal}
+                    />
+                  </div>
+                  <div className="max-w-[484px] mx-auto px-4">
+                    <div className="flex flex-col gap-3 my-5">
+                      <div className="flex gap-2.5 it items-center shadow-shadow1 border border-gray py-4 px-6 rounded-xl text-t1 text-sm font-medium">
+                        <CheckCircleIcon
+                          className="h-5 w-5 text-green"
+                          aria-hidden="true"
+                        />
+
+                        <span className="w-[193px]">
+                          Your delivery & billing day has been changed
+                        </span>
+                      </div>
+                    </div>
+
+                    <h3 className="mb-4">
+                      Choose a new delivery & <br /> billing day
                     </h3>
                     <p className="text-t4 mb-0 text-base ">
                       Currently your subscription delivers and is billed on the{" "}
@@ -83,30 +94,21 @@ const RescheduleModal = (props) => {
                       </div>
                       <span className="text-t4">every 3 months</span>
                     </div>
-                    {newBillingDay?.error && (
-                      <p className="text-md text-red mt-3">
-                        {newBillingDay?.error}
-                      </p>
-                    )}
-
-                    <button
-                      type="button"
-                      className="primary-button mt-8"
-                      onClick={() =>
-                        _.isNull(newBillingDay?.value)
-                          ? _handleReviewBillingDay()
-                          : _handleSteps("step10")
-                      }
-                    >
-                      Review & Confirm
-                    </button>
-                    <button
-                      type="button"
-                      className="primary-button-outlined mt-2"
-                      onClick={closeModal}
-                    >
-                      Cancel
-                    </button>
+                    <div className="flex flex-col gap-3">
+                      <button
+                        type="button"
+                        className="primary-button mt-8"
+                        onClick={onConfirm}
+                      >
+                        Review & Confirm
+                      </button>
+                      <button
+                        className="primary-button-text-only text-darkpink sm:text-lg text-base font-bold"
+                        onClick={closeModal}
+                      >
+                        Cancel
+                      </button>
+                    </div>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

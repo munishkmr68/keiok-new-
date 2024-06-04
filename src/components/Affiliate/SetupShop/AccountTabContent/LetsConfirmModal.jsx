@@ -1,27 +1,19 @@
+"use client";
+import _ from "lodash";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import Close from "../../../../assets/images/icons/close-circle.svg";
 
-const checkicon = {
-  width: "24px",
-  height: "24px",
-};
+const LetsConfirmModal = ({
+  onClose,
+  onCancel,
+}) => {
+  const [isOpen, setIsOpen] = useState(true);
 
-const listingspan = {
-  width: "calc(100% - 34px)",
-};
-
-export default function GetOrderModal({ onClose }) {
-  let [isOpen, setIsOpen] = useState(true);
-
-  function closeModal() {
-    onClose();
-  }
-
-  function handleSendOrder() {
-    closeModal();
-  }
-  
+  const closeModal = () => {
+    setIsOpen(false);
+    onClose(); // Call onClose prop to handle modal close
+  };
 
   return (
     <>
@@ -57,22 +49,19 @@ export default function GetOrderModal({ onClose }) {
                       onClick={closeModal}
                     />
                   </div>
-                  <div className="py-4  flex items-center justify-between gap-2 group">
-                    <h3 className="font-bold">Get your order now</h3>
-                  </div>
-                  <p className="mb-6 text-[15px] text-t4 font-medium">
-                    If you get your order now you’ll be charged immediately, and
-                    you won’t be able to make any further changes to your order.
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <button type="button" className="primary-button">
-                      Send this order now
-                    </button>
+                  <div className="max-w-[484px] mx-auto px-4">
+                    <h3 className="mb-4">Let’s confirm your changes</h3>
+                    <p className="text-t4 mb-0 text-base ">
+                      Your delivery and billing day will be changed to the 1st,
+                      every 3 months.
+                    </p>
+
                     <button
-                      className="primary-button-text-only text-darkpink sm:text-lg text-base font-bold"
-                      onClick={handleSendOrder}
+                      type="button"
+                      className="primary-button mt-8"
+                      onClick={onCancel}
                     >
-                      Cancel
+                       Confirm
                     </button>
                   </div>
                 </Dialog.Panel>
@@ -83,4 +72,6 @@ export default function GetOrderModal({ onClose }) {
       </Transition>
     </>
   );
-}
+};
+
+export default LetsConfirmModal;

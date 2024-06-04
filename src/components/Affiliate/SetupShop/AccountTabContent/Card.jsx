@@ -22,8 +22,12 @@ import GoogleAutocomplete from "@/components/GoogleAutocomplete";
 import profileImg from "../../../../assets/images/profile-pic-needhelp.png";
 import GetOrderModal from "./GetOrderModal";
 import RescheduleModal from "./RescheduleModal";
+import LetsConfirmModal from "./LetsConfirmModal";
+import CancelModal from "./CancelModal";
+import CancelationCompleteModal from "./CancelationCompleteModal";
+import SecurityCheck from "./SecurityCheck";
 
-const Card = ({ onClose }) => {
+const Card = () => {
   const [isEditingShipping, setIsEditingShipping] = useState(false);
   const [isEditingEmail, setIsEditingEmail] = useState(false);
   const [isEditingPayWith, setIsEditingPayWith] = useState(false);
@@ -31,6 +35,11 @@ const Card = ({ onClose }) => {
   const [showLoaderModal, setShowLoaderModal] = useState(false);
   const [openGetOrderModal, setOpenGetOrderModal] = useState(false);
   const [openRescheduleModal, setOpenRescheduleModal] = useState(false);
+  const [showLetsConfirmModal, setShowLetsConfirmModal] = useState(false);
+  const [showCancelModal, setShowCancelModal] = useState(false);
+  const [showCancelationCompleteModal, setShowCancelationCompleteModal] =
+    useState(false);
+  const [showSecurityCheckModal, setShowSecurityCheckModal] = useState(false);
 
   const handleLoader = () => {
     setShowLoaderModal(true);
@@ -46,6 +55,22 @@ const Card = ({ onClose }) => {
 
   const handleOpenRescheduleModal = () => {
     setOpenRescheduleModal(true);
+  };
+
+  const handleOpenLetsConfirmModal = () => {
+    setOpenRescheduleModal(false);
+    setShowLetsConfirmModal(true);
+  };
+  const handleOpenCancelModal = () => {
+    setShowLetsConfirmModal(false);
+    setShowCancelModal(true);
+  };
+  const handleOpenCancelationCompleteModal = () => {
+    setShowCancelModal(false);
+    setShowCancelationCompleteModal(true);
+  };
+  const handleOpenSecurityCheckModal = () => {
+    setShowSecurityCheckModal(true);
   };
 
   return (
@@ -64,6 +89,7 @@ const Card = ({ onClose }) => {
             <button
               type="button"
               className="primary-button font-medium flex-1 py-2"
+              onClick={handleOpenRescheduleModal}
             >
               Reschedule
             </button>
@@ -188,7 +214,7 @@ const Card = ({ onClose }) => {
                   <button
                     type="button"
                     className="primary-button font-medium flex-1 py-2"
-                    onClick={() => setIsEditingShipping(!isEditingShipping)}
+                    onClick={handleOpenSecurityCheckModal}
                   >
                     Save
                   </button>
@@ -535,6 +561,15 @@ const Card = ({ onClose }) => {
                     </div>
                   </div>
                 </div>
+
+                <div className="mt-3 shadow-shadow1 border border-gray py-4 px-6 text-t5 rounded-xl text-xs font-medium">
+                  I <span className="text-darkpink">choose</span> to subscribe
+                  because of <span className="text-darkpink">our</span> Lash
+                  Cycle and I can
+                  <span className="text-darkpink">choose</span> to cancel
+                  anytime
+                </div>
+
                 <div className="flex mt-3 gap-4">
                   <button
                     type="button"
@@ -588,14 +623,35 @@ const Card = ({ onClose }) => {
       </div>
 
       {openGetOrderModal && (
-        <GetOrderModal
-          onClose={() => setOpenGetOrderModal(false)}
-          onSendOrder={handleOpenRescheduleModal} // Pass down function to open RescheduleModal
+        <GetOrderModal onClose={() => setOpenGetOrderModal(false)} />
+      )}
+
+      {openRescheduleModal && (
+        <RescheduleModal
+          onClose={() => setOpenRescheduleModal(false)}
+          onConfirm={handleOpenLetsConfirmModal}
         />
       )}
 
-{openRescheduleModal && (
-        <RescheduleModal onClose={() => setOpenRescheduleModal(false)} />
+      {showLetsConfirmModal && (
+        <LetsConfirmModal
+          onClose={() => setShowLetsConfirmModal(false)}
+          onCancel={handleOpenCancelModal}
+        />
+      )}
+      {showCancelModal && (
+        <CancelModal
+          onClose={() => setShowCancelModal(false)}
+          onCancelationComplete={handleOpenCancelationCompleteModal}
+        />
+      )}
+      {showCancelationCompleteModal && (
+        <CancelationCompleteModal
+          onClose={() => setShowCancelationCompleteModal(false)}
+        />
+      )}
+      {showSecurityCheckModal && (
+        <SecurityCheck onClose={() => setShowSecurityCheckModal(false)} />
       )}
     </>
   );
