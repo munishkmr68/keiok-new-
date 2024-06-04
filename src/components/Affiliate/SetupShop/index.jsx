@@ -49,7 +49,7 @@ function SetupShop() {
           <SetupShopTabs />
         </div>
         <div className="max-w-[484px] mx-auto px-4 mb-3">
-          <div className="mt-[250px] mb-[120px]">
+          <div className="my-24">
             <EncryptionPolicy />
           </div>
           <NeedHelp />

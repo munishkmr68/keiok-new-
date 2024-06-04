@@ -1,9 +1,8 @@
 "use client";
-import Menu from "@/components/menu";
 import React, { useState } from "react";
+import Menu from "@/components/menu";
 import clipart from "../../assets/images/clipart-img.png";
 import Image from "next/image";
-
 import Footer from "@/common/Footer";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import StandardPopup from "./StandardPopup";
