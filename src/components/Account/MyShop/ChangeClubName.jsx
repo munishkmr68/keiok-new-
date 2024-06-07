@@ -63,7 +63,7 @@ const ChangeClubName = (props) => {
               <div className="relative">
 
               <div className="flex flex-2 mt-6 gap-3 absolute right-20 bottom-4">
-                <button className="text-blue items-center text-[13px] font-[450] " onClick={handleSave}>Confirm</button>
+                <button className="text-blue items-center text-[13px] font-[450] " onClick={handleSave}>Check</button>
               </div>
               <div className=" absolute right-6 bottom-4">
                 <button className=" text-blue items-center text-[13px] font-[450]" onClick={(()=>{

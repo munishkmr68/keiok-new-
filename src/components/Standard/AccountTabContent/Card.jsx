@@ -196,6 +196,7 @@ const Card = (props) => {
                   >
                     Cancel
                   </button>
+                  
                 </div>
               </div>
             ) : (

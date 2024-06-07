@@ -56,6 +56,7 @@ const GoogleAutocomplete = ({
                             {icon}
                         </div>
                         <input
+                                
                             {...getInputProps({
                                 id: "googleaddress",
                                 placeholder: "",

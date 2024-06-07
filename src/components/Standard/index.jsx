@@ -13,6 +13,13 @@ import NeedHelp from "../NeedHelp";
 import LashesIcon from "../../assets/images/icons/lashes.svg";
 import SubscribeIcone from "../../assets/images/icons/subscribe.svg";
 import CheckmarkIcon from "../../assets/images/icons/checkmark.svg";
+import MyNextOrder from "./MyNextOrder";
+import MyNextOrderModal from "./MyNextOrderModal";
+import ProductInfo from "./ProductInfo";
+import ChangeEmail from "./ChangeEmail";
+import PaymentInfo from "./PaymentInfo";
+import ShippingInfo from "./ShippingInfo";
+import OrderHistory from "./OrderHistory/OrderHistory";
 
 function Standard() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -47,7 +54,7 @@ function Standard() {
           <Menu />
         </div>
       </header>
-      <div className="max-w-[484px] mx-auto px-4 mb-3 ">
+      <div className="max-w-[484px] mx-auto px-4 mb-3">
         <button
           className="tab-button rounded-lg font-[450] text-xl border border-gray text-t4 flex items-center justify-between  "
           onClick={() => {
@@ -59,48 +66,23 @@ function Standard() {
           <ChevronDownIcon className="w-5 h-5 " />
         </button>
       </div>
-      <div className="  ">
-        <div className="flex flex-col items-center gap-0.5">
-          <StandardTabs value={value} />
-        </div>
-        <div className="max-w-[484px] mx-auto px-4 mb-3">
-          <div className="mt-[250px] mb-[120px]">
-            <EncryptionPolicy />
-          </div>
-          <NeedHelp />
-        </div>
-        <div className="bg-pink">
-          <div className="max-w-[484px] mx-auto px-4 py-8">
-            <ul className="text-t4 space-y-1">
-              <li className="flex gap-2">
-                <LashesIcon className="w-6 h-6" />
-                <span className="text-base sm:text-lg font-medium">
-                  Natural LASHES
-                  <br />+ BROWS
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <SubscribeIcone className="w-6 h-6" />
-                <span className="text-base sm:text-lg font-medium">
-                  Subscribe because of our <br />
-                  Lash Cycle{" "}
-                  <span className="text-blue text-base sm:text-lg font-medium">
-                    Learn more
-                  </span>
-                </span>
-              </li>
-              <li className="flex gap-2">
-                <CheckmarkIcon className="w-6 h-6" />
-                <span className="text-base sm:text-lg font-medium">
-                  No commitments,
-                  <br />
-                  Cancel anytime
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
+
+      {value === "Change email" ? (
+        <ChangeEmail />
+      ) : value === "MY lash product info" ? (
+        <ProductInfo />
+      ) : value === "Payment info" ? (
+        <PaymentInfo />
+      ) : value === "Shipping info" ? (
+        <ShippingInfo />
+      ) : value === "Order history" ? (
+        <OrderHistory />
+      ) : (
+        <MyNextOrder />
+      )}
+
+      
       <Footer />
     </>
   );

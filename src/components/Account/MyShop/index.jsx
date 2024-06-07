@@ -1,19 +1,17 @@
 "use client";
-
 import Menu from "@/components/menu";
-import Image from "next/image";
 import React, { useState } from "react";
 import clipart from "../../../assets/images/clipart-img.png";
-
+import Image from "next/image";
+import SetupShopTabs from "./Tabs";
 import EncryptionPolicy from "@/components/EncryptionPolicy";
 import NeedHelp from "@/components/NeedHelp";
 import LashesIcon from "../../../assets/images/icons/lashes.svg";
 import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
 import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
 import Footer from "@/common/Footer";
-import MyShopTabs from "./Tabs";
-// import LeaveTabs from "./Tabs";
-export default function MyShop() {
+
+function SetupShop() {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -41,52 +39,55 @@ export default function MyShop() {
             SHARE
           </button>
           <div>
-            <Menu />
+          <Menu />
           </div>
         </div>
       </header>
-
-      <MyShopTabs />
-
-      <div className="max-w-[484px] mx-auto px-4 mb-3">
-        <div className="mt-[250px] mb-[120px]">
-          <EncryptionPolicy />
+      <div className="w-full mx-auto  ">
+        <div className="flex flex-col items-center gap-0.5">
+          <SetupShopTabs />
         </div>
-        <NeedHelp />
-      </div>
-      <div className="bg-pink">
-        <div className="max-w-[484px] mx-auto px-4 py-8">
-          <ul className="text-t4 space-y-1">
-            <li className="flex gap-2">
-              <LashesIcon className="w-6 h-6" />
-              <span className="text-base sm:text-lg font-medium">
-                Natural LASHES
-                <br />+ BROWS
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <SubscribeIcone className="w-6 h-6" />
-              <span className="text-base sm:text-lg font-medium">
-                Subscribe because of our <br />
-                Lash Cycle{" "}
-                <span className="text-blue text-base sm:text-lg font-medium">
-                  Learn more
+        <div className="max-w-[484px] mx-auto px-4 mb-3">
+          <div className="my-24">
+            <EncryptionPolicy />
+          </div>
+          <NeedHelp />
+        </div>
+        <div className="bg-pink">
+          <div className="max-w-[484px] mx-auto px-4 py-8">
+            <ul className="text-t4 space-y-1">
+              <li className="flex gap-2">
+                <LashesIcon className="w-6 h-6" />
+                <span className="text-base sm:text-lg font-medium">
+                  Natural LASHES
+                  <br />+ BROWS
                 </span>
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <CheckmarkIcon className="w-6 h-6" />
-              <span className="text-base sm:text-lg font-medium">
-                No commitments,
-                <br />
-                Cancel anytime
-              </span>
-            </li>
-          </ul>
+              </li>
+              <li className="flex gap-2">
+                <SubscribeIcone className="w-6 h-6" />
+                <span className="text-base sm:text-lg font-medium">
+                  Subscribe because of our <br />
+                  Lash Cycle{" "}
+                  <span className="text-blue text-base sm:text-lg font-medium">
+                    Learn more
+                  </span>
+                </span>
+              </li>
+              <li className="flex gap-2">
+                <CheckmarkIcon className="w-6 h-6" />
+                <span className="text-base sm:text-lg font-medium">
+                  No commitments,
+                  <br />
+                  Cancel anytime
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-
       <Footer />
     </>
   );
 }
+
+export default SetupShop;

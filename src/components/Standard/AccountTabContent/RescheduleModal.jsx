@@ -62,17 +62,10 @@ const RescheduleModal = (props) => {
                     onClick={closeModal}
                   />
                 </div>
-                <div className="max-w-[484px] mx-auto px-4 pt-12">
+                <div className="max-w-[484px] mx-auto px-4 ">
                   {step == "step1" ? (
                     <>
-                      {" "}
-                      <span
-                        className="w-[42px] h-[42px] rounded-full border border-blue text-blue flex items-center justify-center  cursor-pointer"
-                        onClick={() => _handleSteps("back")}
-                      >
-                        <ChevronLeftIcon className="w-4 h-4 stroke-current" />
-                      </span>
-                      <h3 className="mb-4 mt-8">
+                      <h3 className="mb-4 mt-8 max-w-[256px]">
                         Choose a new delivery & billing day
                       </h3>
                       <p className="text-t4 mb-0 text-[15px] ">
@@ -101,20 +94,22 @@ const RescheduleModal = (props) => {
                           {newBillingDay?.error}
                         </p>
                       )}
-                      <button
-                        type="button"
-                        className="primary-button mt-8"
-                        onClick={() => setStep("step2")}
-                      >
-                        Review & Confirm
-                      </button>
-                      <button
-                        type="button"
-                        className="primary-button-outlined mt-2"
-                        onClick={closeModal}
-                      >
-                        Cancel
-                      </button>{" "}
+                      <div className="flex flex-col gap-3">
+                        <button
+                          type="button"
+                          className="primary-button mt-8"
+                          onClick={() => setStep("step2")}
+                        >
+                          Review & Confirm
+                        </button>
+                        <button
+                          type="button"
+                          className="primary-button-text-only text-darkpink sm:text-lg text-base font-bold"
+                          onClick={closeModal}
+                        >
+                          Cancel
+                        </button>
+                      </div>
                     </>
                   ) : step == "step2" ? (
                     <>
@@ -176,21 +171,21 @@ const RescheduleModal = (props) => {
                           {newBillingDay?.error}
                         </p>
                       )}
-
-                      <button
-                        type="button"
-                        className="primary-button mt-8"
-                        onClick={() => setStep("step4")}
-                      >
-                        Review & Confirm
-                      </button>
-                      <button
-                        type="button"
-                        className="primary-button-outlined mt-2"
-                        onClick={closeModal}
-                      >
-                        Cancel
-                      </button>
+                      <div className="flex flex-col gap-3">
+                        <button
+                          type="button"
+                          className="primary-button mt-8"
+                          onClick={() => setStep("step4")}
+                        >
+                          Review & Confirm
+                        </button>
+                        <button
+                          className="primary-button-text-only text-darkpink sm:text-lg text-base font-bold"
+                          onClick={closeModal}
+                        >
+                          Cancel
+                        </button>
+                      </div>
                     </>
                   ) : step == "step4" ? (
                     <>
@@ -226,7 +221,6 @@ const RescheduleModal = (props) => {
                           type="button"
                           className=" text-darkpink text-[18px] font-bold text-center mt-3"
                           onClick={closeModal}
-                          
                         >
                           Continue MY membership
                         </button>
@@ -235,24 +229,25 @@ const RescheduleModal = (props) => {
                   ) : step == "step5" ? (
                     <>
                       <h4 className="mb-4 -mt-6 text-t4 font-bold text-[24px]">
-                      Cancelation <span className="text-darkpink">complete</span> 
+                        Cancelation{" "}
+                        <span className="text-darkpink">complete</span>
                       </h4>
                       <p className="text-t4 font-medium text-[15px] ">
-                      Thank you for your business, Ashley.
+                        Thank you for your business, Ashley.
                       </p>
                       <p className="text-t2 font-medium text-[15px] ">
-                      An email confirmation will be sent to:
+                        An email confirmation will be sent to:
                       </p>
                       <p className="text-t2 font-bold text-[14px] ">
-                      j ........ 2@gmail.com
+                        j ........ 2@gmail.com
                       </p>
                       <button
                         type="button"
                         className="primary-button mt-[52px]"
-                        onClick={() =>{ setShowRestart(true)
-                          closeModal()
-}
-                        }
+                        onClick={() => {
+                    
+                          closeModal();
+                        }}
                       >
                         Done
                       </button>

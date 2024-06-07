@@ -1,25 +1,22 @@
 "use client";
 import React, { useState } from "react";
-import CheckmarkIcon from "../../../../assets/images/icons/checkmark.svg";
 import EncryptionPolicy from "@/components/EncryptionPolicy";
 import Image from "next/image";
-import myLashMyClub from "../../../../assets/images/mylash-myclub-img.png";
-import NortonLogo from "../../../../assets/images/norton-logo.png";
-import SubscribeIcone from "../../../../assets/images/icons/subscribe.svg";
-import Amex from "../../../../assets/images/icons/amex-icon.svg";
-import PaymentIcon from "../../../../assets/images/icons/payment-icons.svg";
-import CardNumber from "../../../../assets/images/icons/cardnumber.svg";
-import SecurityCode from "../../../../assets/images/icons/securitycode.svg";
-import ApplePay from "../../../../assets/images/icons/applepay.svg";
-import Googlepay from "../../../../assets/images/icons/google-pay-black.svg";
-import Coinzoom from "../../../../assets/images/icons/coinzoom-black.svg";
-import Paypal from "../../../../assets/images/icons/paypal.svg";
-import { XCircleIcon } from "@heroicons/react/24/outline";
-import { LockClosedIcon } from "@heroicons/react/24/solid";
-import ChangeDropdown from "../ChangeDropdown";
+import myLashMyClub from "../../assets/images/mylash-myclub-img.png";
+import NortonLogo from "../../assets/images/norton-logo.png";
+import SubscribeIcone from "../../assets/images/icons/subscribe.svg";
+import Amex from "../../assets/images/icons/amex-icon.svg";
+import PaymentIcon from "../../assets/images/icons/payment-icons.svg";
+import CardNumber from "../../assets/images/icons/cardnumber.svg";
+import SecurityCode from "../../assets/images/icons/securitycode.svg";
+import ApplePay from "../../assets/images/icons/applepay.svg";
+import Googlepay from "../../assets/images/icons/google-pay-black.svg";
+import Coinzoom from "../../assets/images/icons/coinzoom-black.svg";
+import Paypal from "../../assets/images/icons/paypal.svg";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import ChangeDropdown from "./ChangeDropdown";
 import Inputbox from "@/components/inputbox";
 import GoogleAutocomplete from "@/components/GoogleAutocomplete";
-import profileImg from "../../../../assets/images/profile-pic-needhelp.png";
 import GetOrderModal from "./GetOrderModal";
 import RescheduleModal from "./RescheduleModal";
 import LetsConfirmModal from "./LetsConfirmModal";
@@ -27,7 +24,7 @@ import CancelModal from "./CancelModal";
 import CancelationCompleteModal from "./CancelationCompleteModal";
 import SecurityCheck from "./SecurityCheck";
 
-const Card = () => {
+const MyNextOrder = () => {
   const [isEditingShipping, setIsEditingShipping] = useState(false);
   const [isEditingEmail, setIsEditingEmail] = useState(false);
   const [isEditingPayWith, setIsEditingPayWith] = useState(false);
@@ -74,7 +71,8 @@ const Card = () => {
   };
 
   return (
-    <>
+    <div className="max-w-[484px] mx-auto px-4">
+
       <div className="border rounded-xl shadow-shadow1 border-gray px-6 pt-8 mt-6">
         <p className="text-t4 font-medium mb-4">Tues, April 23, 2024</p>
         <div>
@@ -653,8 +651,8 @@ const Card = () => {
       {showSecurityCheckModal && (
         <SecurityCheck onClose={() => setShowSecurityCheckModal(false)} />
       )}
-    </>
+    </div>
   );
 };
 
-export default Card;
+export default MyNextOrder;

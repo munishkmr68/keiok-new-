@@ -7,7 +7,7 @@ import React from "react";
 
 import { CheckIcon } from "@heroicons/react/24/solid";
 const language = [
-  { name: "My shop details", value: "setup MY club" },
+  { name: "setup MY club", value: "setup MY club" },
   { name: "FAQ for MY club", value: "FAQ for MY club" },
   { name: "MY commissions", value: "MY commissions" },
   { name: "Preview MY club", value: "Preview MY club" },
