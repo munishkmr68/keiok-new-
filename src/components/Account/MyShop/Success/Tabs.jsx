@@ -104,7 +104,7 @@ export default function SuccessTabs() {
             >
               <div className="max-w-[484px] mx-auto ">
                 <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  ">
-                  <span className="ml-36">
+                  <span className="mx-auto">
                     preview
                     <span className="text-darkpink"> MY club</span>
                   </span>

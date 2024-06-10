@@ -111,7 +111,7 @@ export default function SetupShopTabs() {
                   setOpenModal(true);
                 }}
               >
-                <span className="ml-36">
+                <span className="mx-auto">
                   setup
                   <span className="text-darkpink"> MY club</span>
                 </span>
@@ -134,7 +134,7 @@ export default function SetupShopTabs() {
                   setOpenEarnModal(true);
                 }}
               >
-                <span className="ml-36">{earnValue || "Manage MY office"}</span>
+                <span className="mx-auto">{earnValue || "Manage MY office"}</span>
 
                 <ChevronDownIcon className="w-5 h-5 " />
               </button>

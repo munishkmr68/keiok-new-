@@ -61,7 +61,7 @@ function Standard() {
             setOpenModal(true);
           }}
         >
-          <span className="ml-36">{value || "MY next order"}</span>
+          <span className="mx-auto">{value || "MY next order"}</span>
 
           <ChevronDownIcon className="w-5 h-5 " />
         </button>

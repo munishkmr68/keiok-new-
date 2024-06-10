@@ -118,7 +118,7 @@ export default function ChooseYourShopTabs() {
                     setOpenModal(true);
                   }}
                 >
-                  <span className="ml-36">
+                  <span className="mx-auto">
                     setup
                     <span className="text-darkpink"> MY club</span>
                   </span>

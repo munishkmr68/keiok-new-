@@ -31,7 +31,7 @@ const AccountTabContent = () => {
           className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between"
           onClick={toggleModal}
         >
-          <span className="ml-36">{value || "MY next order"}</span>
+          <span className="mx-auto">{value || "MY next order"}</span>
           <ChevronDownIcon className="w-5 h-5 " />
         </button>
       </div>

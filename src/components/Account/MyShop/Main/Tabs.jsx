@@ -118,7 +118,7 @@ export default function MainTabs() {
                   className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between  "
                  
                 >
-                  <span className="ml-36">
+                  <span className="mx-auto">
                     setup
                     <span className="text-darkpink"> MY club</span>
                   </span>
