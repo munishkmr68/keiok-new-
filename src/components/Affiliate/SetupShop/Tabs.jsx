@@ -123,11 +123,11 @@ export default function SetupShopTabs() {
           </Tab.Panel>
           <Tab.Panel
             className={classNames(
-              "rounded-xl bg-white p-3",
+              "rounded-xl bg-white",
               "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
             )}
           >
-            <div className="max-w-[484px] mx-auto px-4 mb-3  ">
+            <div className="max-w-[484px] mx-auto px-4 mt-[20px] mb-3  ">
               <button
                 className="tab-button rounded-lg font-[450] text-xl border border-gray text-t4 flex items-center justify-between  "
                 onClick={() => {

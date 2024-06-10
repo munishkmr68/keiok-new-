@@ -619,9 +619,7 @@ const MyNextOrder = () => {
           </div>
         </div>
       </div>
-      <div className="mt-4 mb-14">
-        <EncryptionPolicy />
-      </div>
+
 
       {openGetOrderModal && (
         <GetOrderModal onClose={() => setOpenGetOrderModal(false)} />

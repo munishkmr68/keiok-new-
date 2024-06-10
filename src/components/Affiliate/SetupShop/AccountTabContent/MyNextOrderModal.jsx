@@ -61,7 +61,7 @@ const MyNextOrderModal = (props) => {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="mx-4 sm:mx-0 w-full max-w-[375px] h-[391px] transform mt-18 p-7 bg-white  text-left align-middle  transition-all rounded-md">
+                  <Dialog.Panel className="mx-4 sm:mx-0 w-full max-w-[375px] h-[408px] transform mt-18 p-7 bg-white  text-left align-middle  transition-all rounded-md">
                     <Close
                       className="mb-5 ml-auto cursor-pointer"
                       onClick={closeModal}
