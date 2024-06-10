@@ -1,10 +1,15 @@
-import { Tab } from "@headlessui/react";
+import { Disclosure, Tab } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import SetupShopPopup from "./SetupShopPopup";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import MyClubTab from "./MyClubTab";
 import AccountTabContent from "./AccountTabContent/AccountTabContent";
+import EarnTab from "./EarnTabContent/EarnTab";
+import PlusIcon from "../../../assets/images/icons/plus.svg";
+import CloseIcon from "../../../assets/images/icons/close.svg";
+import DropDownPopUp from "../SetupShop/EarnTabContent/DropDownPopUp";
+import EarnDropDownPopUp from "../SetupShop/EarnTabContent/EarnDropDownPopUp";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -16,6 +21,11 @@ export default function SetupShopTabs() {
     useState(false);
   const router = useRouter();
   const [showoption, setShowOption] = useState(1);
+
+  const [openEarnModal, setOpenEarnModal] = useState(false);
+  const [value, setValue] = useState("MY club details");
+  const [earnValue, setEarnValue] = useState("Manage MY office");
+
   return (
     <>
       {openModal && (
@@ -26,8 +36,25 @@ export default function SetupShopTabs() {
         />
       )}
 
+      {openModal && (
+        <DropDownPopUp
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          setValue={setValue}
+          value={value}
+        />
+      )}
+      {openEarnModal && (
+        <EarnDropDownPopUp
+          openModal={openEarnModal}
+          setOpenModal={setOpenEarnModal}
+          setValue={setEarnValue}
+          value={earnValue}
+        />
+      )}
+
       <Tab.Group>
-      <div className="w-full max-w-[484px] mx-auto px-4">
+        <div className="w-full max-w-[484px] mx-auto px-4">
           <Tab.List className="flex  rounded-md bg-[#f7f7f7] h-[30px]">
             <Tab
               className={({ selected }) =>
@@ -100,46 +127,48 @@ export default function SetupShopTabs() {
               "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
             )}
           >
-            <ul>
-              <li className="relative rounded-md p-3 hover:bg-gray-100">
-                <h3 className="text-sm font-medium leading-5">
-                  Ask Me Anything: 10 answers to your questions about coffee
-                </h3>
-                <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                  <li>2d ago</li>
-                  <li>&middot;</li>
-                  <li>9 comments</li>
-                  <li>&middot;</li>
-                  <li>5 shares</li>
-                </ul>
-                <a
-                  href="#"
-                  className={classNames(
-                    "absolute inset-0 rounded-md",
-                    "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                  )}
-                />
-              </li>
-              <li className="relative rounded-md p-3 hover:bg-gray-100">
-                <h3 className="text-sm font-medium leading-5">
-                  The worst advice we ve ever heard about coffee
-                </h3>
-                <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                  <li>4d ago</li>
-                  <li>&middot;</li>
-                  <li>1 comment</li>
-                  <li>&middot;</li>
-                  <li>2 shares</li>
-                </ul>
-                <a
-                  href="#"
-                  className={classNames(
-                    "absolute inset-0 rounded-md",
-                    "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                  )}
-                />
-              </li>
-            </ul>
+            <div className="max-w-[484px] mx-auto px-4 mb-3  ">
+              <button
+                className="tab-button rounded-lg font-[450] text-xl border border-gray text-t4 flex items-center justify-between  "
+                onClick={() => {
+                  setOpenEarnModal(true);
+                }}
+              >
+                <span className="ml-36">{earnValue || "Manage MY office"}</span>
+
+                <ChevronDownIcon className="w-5 h-5 " />
+              </button>
+            </div>
+
+            <EarnTab value={earnValue} />
+            <div className="max-w-[484px] mx-auto px-4 mt-24 mb-24 ">
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="disclosure-button"></Disclosure.Button>
+                  </>
+                )}
+              </Disclosure>
+              <Disclosure>
+                {({ open }) => (
+                  <>
+                    <Disclosure.Button className="disclosure-button">
+                      <span>FAQ for Instant Pay</span>
+                      <PlusIcon
+                        className={`${open ? "hidden" : "block"} h-5 w-5`}
+                      />
+                      <CloseIcon className={`${open ? "block" : "hidden"} `} />
+                    </Disclosure.Button>
+                    <Disclosure.Panel className="py-4 border-b border-gray">
+                      Sed commodo tincidunt finibus. Proin volutpat sollicitudin
+                      congue. Nullam fringilla erat quam, vel tincidunt mauris
+                      commodo vel. Integer vestibulum sapien quis justo
+                      efficitur mollis
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+            </div>
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
