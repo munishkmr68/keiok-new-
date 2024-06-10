@@ -8,6 +8,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import CloseIcon from "../../../assets/images/icons/close.svg";
 import PlusIcon from "../../../assets/images/icons/plus.svg";
 import Link from "next/link";
+import OneTimeBuy from "./OneTimeBuy";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -143,46 +144,15 @@ export default function Example() {
             "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
           )}
         >
-          <ul>
-            <li className="relative rounded-md p-3 hover:bg-gray-100">
-              <h3 className="text-sm font-medium leading-5">
-                Ask Me Anything: 10 answers to your questions about coffee
-              </h3>
-              <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                <li>2d ago</li>
-                <li>&middot;</li>
-                <li>9 comments</li>
-                <li>&middot;</li>
-                <li>5 shares</li>
-              </ul>
-              <a
-                href="#"
-                className={classNames(
-                  "absolute inset-0 rounded-md",
-                  "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                )}
-              />
-            </li>
-            <li className="relative rounded-md p-3 hover:bg-gray-100">
-              <h3 className="text-sm font-medium leading-5">
-                The worst advice we ve ever heard about coffee
-              </h3>
-              <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                <li>4d ago</li>
-                <li>&middot;</li>
-                <li>1 comment</li>
-                <li>&middot;</li>
-                <li>2 shares</li>
-              </ul>
-              <a
-                href="#"
-                className={classNames(
-                  "absolute inset-0 rounded-md",
-                  "ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
-                )}
-              />
-            </li>
-          </ul>
+          <OneTimeBuy />
+          
+          <Link
+            className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-6"
+            href="/affiliate/checkout"
+          >
+            Next
+            <ChevronRightIcon className="w-4 h-4" />
+          </Link>
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
