@@ -7,7 +7,7 @@ import React from "react";
 
 import { CheckIcon } from "@heroicons/react/24/solid";
 const language = [
-  { name: "setup MY club", value: "setup MY club" },
+  { name: "MY club details", value: "MY club details" },
   { name: "FAQ for MY club", value: "FAQ for MY club" },
   { name: "MY commissions", value: "MY commissions" },
   { name: "Preview MY club", value: "Preview MY club" },
@@ -124,12 +124,6 @@ const DropDownPopUp = (props) => {
                         </Transition>
                       </div>
                     </Listbox>
-
-                    {/* <button className="tab-button rounded-lg font-[450] text-xl border border-gray mt-[20px] text-t4 flex items-center justify-between ">
-                      <span className="text-base">
-                        setup MY club
-                      </span>
-                    </button> */}
                   </Dialog.Panel>
                 </Transition.Child>
               </div>

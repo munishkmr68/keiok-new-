@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import profileImg from "../../../assets/images/profile-pic-needhelp.png";
 import productLash from "../../../assets/images/product-lash.png";
 import {
   ChevronDownIcon,
@@ -34,7 +33,7 @@ export default function MyClubTab(props) {
         <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden mt-[30px]">
           <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden ">
             <div className="max-w-[484px] mt-0 pl-6 pt-4 pb-4">
-              {props?.value == "My Club details" ? (
+              {props?.value == "MY club details" ? (
                 <>
                   {" "}
                   <div>
