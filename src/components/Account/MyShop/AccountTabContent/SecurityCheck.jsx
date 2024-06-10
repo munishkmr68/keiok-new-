@@ -82,7 +82,7 @@ const SecurityCheck = (props) => {
                         </div>
                       )}
                       <p className="text-xs text-t4 mt-4 text-center max-w-[193px] mx-auto">
-                        You'll also receive an SMS if we have your number on
+                        You&apos;ll also receive an SMS if we have your number on
                         file
                       </p>
                     </div>

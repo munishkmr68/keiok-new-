@@ -197,7 +197,7 @@ const LevelPay = () => {
          
           <span className="text-base sm:text-[15px] -mt-1 font-medium">
             If Ali enrolls as an affiliate through your club then she 
-            becomes your Level 1. If Lisa signs up through Ali's club then Lisa
+            becomes your Level 1. If Lisa signs up through Ali&apos;s club then Lisa
             becomes your<br/> Level 2.
           </span>
         </li>
