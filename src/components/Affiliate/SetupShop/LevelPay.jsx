@@ -9,6 +9,38 @@ import profileImg from "../../../assets/images/profile-pic-needhelp.png";
 const LevelPay = () => {
   return (
     <>
+      <div className="max-w-[484px] mx-auto px-4">
+        <div className="flex items-center gap-4 pb-6">
+          <Image
+            className="w-[140px] h-[140px] rounded-full"
+            src={profileImg}
+            alt="user-img"
+          />
+          <div>
+            <span className="text-t4 text-[10px] font-bold flex items-center gap-1">
+              <span className="text-t5">STEP</span> 1{" "}
+              <span className="text-t5">OF</span> 5
+            </span>
+
+            <h4 className="mb-0.5 text-t4 font-bold leading-tight">
+              Do you want <br />
+              <span className="text-darkpink">Level</span>
+              Pay?
+            </h4>
+
+            <p className="font-medium text-sm">
+              <span className="text-[9px]">with</span> Ashley Jackson
+            </p>
+          </div>
+        </div>
+        <div className="text-t4 text-sm font-[420]">
+        Level pay is optional.  It is included with your membership if you want it.
+        </div>
+        <div className="text-t3 text-sm mt-3 mb-6 text-[15px] font-[420] p-0">
+          <p>No commitments</p>
+          <p>No fees</p>
+        </div>
+      </div>
       <div className="border rounded-xl shadow-shadow1 border-gray  overflow-hidden mt-4">
         <div className="max-w-[484px] mt-0 pl-6 pt-4">
           <h6 className=" text-[13px] text-left">Example:</h6>
@@ -215,8 +247,8 @@ const LevelPay = () => {
           />
           <span className="text-base sm:text-[15px] -mt-1 font-medium">
             If Ali enrolls as an affiliate through your club then she <br />
-            becomes your Level 1. If Lisa signs up through Ali`&apos;`s club then Lisa
-            becomes your Level 2.
+            becomes your Level 1. If Lisa signs up through Ali`&apos;`s club
+            then Lisa becomes your Level 2.
           </span>
         </li>
       </div>

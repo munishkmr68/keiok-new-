@@ -1,5 +1,5 @@
 import React from 'react'
-import ChooseYourWebsite from '@/components/Affiliate/SetupShop/ChooseYourWebsite'
+import ChooseYourWebsite from '@/components/Affiliate/SetupShop/ChooseYourWebsite/ChooseYourWebsite'
 
 const chooseyourwebsite = () => {
   return (

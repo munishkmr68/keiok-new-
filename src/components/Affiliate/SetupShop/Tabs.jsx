@@ -36,14 +36,14 @@ export default function SetupShopTabs() {
         />
       )}
 
-      {openModal && (
+      {/* {openModal && (
         <DropDownPopUp
           openModal={openModal}
           setOpenModal={setOpenModal}
           setValue={setValue}
           value={value}
         />
-      )}
+      )} */}
       {openEarnModal && (
         <EarnDropDownPopUp
           openModal={openEarnModal}
