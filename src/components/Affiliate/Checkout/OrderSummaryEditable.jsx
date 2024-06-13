@@ -1,11 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
-import EncryptionPolicy from "@/components/EncryptionPolicy";
 import Image from "next/image";
 import myLashMyClub from "../../../assets/images/mylash-myclub-img.png";
 import NortonLogo from "../../../assets/images/norton-logo.png";
-import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
 import Amex from "../../../assets/images/icons/amex-icon.svg";
 import PaymentIcon from "../../../assets/images/icons/payment-icons.svg";
 import CardNumber from "../../../assets/images/icons/cardnumber.svg";
@@ -20,8 +17,14 @@ import ChangeDropdown from "./ChangeDropdown";
 import Inputbox from "@/components/inputbox";
 import GoogleAutocomplete from "@/components/GoogleAutocomplete";
 import profileImg from "../../../assets/images/profile-pic-needhelp.png";
+import Footer from "@/common/Footer";
+import LashesIcon from "../../../assets/images/icons/lashes.svg";
+import SubscribeIcone from "../../../assets/images/icons/subscribe.svg";
+import CheckmarkIcon from "../../../assets/images/icons/checkmark.svg";
+import EncryptionPolicy from "@/components/EncryptionPolicy";
+import NeedHelp from "@/components/NeedHelp";
 
-const OrderSummaryEditable = ({ onClose }) => {
+const OrderSummaryEditable = ({ onClose, onThankYou }) => {
   const [isEditingShipping, setIsEditingShipping] = useState(false);
   const [isEditingEmail, setIsEditingEmail] = useState(false);
   const [isEditingPayWith, setIsEditingPayWith] = useState(false);
@@ -34,6 +37,14 @@ const OrderSummaryEditable = ({ onClose }) => {
 
   const handleRadioChange = (event) => {
     setSelectedPaymentMethod(event.target.value);
+  };
+
+  const handleThankYouClick = () => {
+    if (typeof onThankYou === "function") {
+      onThankYou();
+    } else {
+      console.error("onThankYou is not a function");
+    }
   };
 
   return (
@@ -62,7 +73,7 @@ const OrderSummaryEditable = ({ onClose }) => {
               <LockClosedIcon className="size-3 relative -top-[1px]" /> REVIEW
             </span>
             <h4 className="mb-0.5 text-t4 font-bold leading-tight">
-              Let`&apos;`s make sure
+              Let&apos;s make sure
               <br />
               everything is <span className="text-darkpink">right</span>
             </h4>
@@ -617,10 +628,57 @@ const OrderSummaryEditable = ({ onClose }) => {
             </div>
           </div>
         </div>
-        <div className="mt-4 mb-14">
+        <div className="mt-3 shadow-shadow1 border border-gray py-4 px-6 text-t5 rounded-xl text-xs font-medium">
+          I <span className="text-darkpink">choose</span> to subscribe because
+          of <span className="text-darkpink">our</span> Lash Cycle and I can
+          <span className="text-darkpink">choose</span> to cancel anytime
+        </div>
+        <button
+          className="primary-button mt-6 mb-24"
+          onClick={handleThankYouClick}
+        >
+          Start MY membership
+        </button>
+      </div>
+
+      <div className="max-w-[484px] mx-auto px-4 mb-12">
+        <div className="my-24">
           <EncryptionPolicy />
         </div>
+        <NeedHelp />
       </div>
+      <div className="bg-pink mt-6">
+        <div className="max-w-[484px] mx-auto px-4 py-8">
+          <ul className="text-t4 space-y-2">
+            <li className="flex gap-2">
+              <LashesIcon className="w-6 h-6" />
+              <span className="text-base font-medium">
+                Natural LASHES
+                <br />+ BROWS
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <SubscribeIcone className="w-6 h-6" />
+              <span className="text-base font-medium">
+                Subscribe because of our <br />
+                Lash Cycle{" "}
+                <span className="text-blue text-base font-medium">
+                  Learn more
+                </span>
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <CheckmarkIcon className="w-6 h-6" />
+              <span className="text-base font-medium">
+                No commitments,
+                <br />
+                Cancel anytime
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 };

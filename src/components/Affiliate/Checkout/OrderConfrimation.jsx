@@ -8,6 +8,7 @@ import OrderSummary from "./OrderSummary";
 import OrderSummaryEditable from "./OrderSummaryEditable"; 
 import ReviewDeliveryInfo from "./ReviewDeliveryInfo"; 
 import SetupCard from "./SetupCard";
+import ThankYou from './ThankYou';
 
 const OrderConfrimation = () => {
 
@@ -15,21 +16,20 @@ const OrderConfrimation = () => {
   const [showOrderSummaryEditable, setShowOrderSummaryEditable] = useState(false);
   const [showReviewDeliveryInfo, setShowReviewDeliveryInfo] = useState(false);
   const [showSetupCard, setShowSetupCard] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
 
   const handleViewOrderClick = () => {
-    setShowOrderSummary(true);
+    setShowOrderSummaryEditable(true);
   };
 
   const handleClubClick = () => {
     setShowReviewDeliveryInfo(true);
   };
 
-
   const handleCloseOrderSummary = () => {
     setShowOrderSummary(false);
   };
   
-
   const handleOrderSummaryEditable = () => {
     setShowOrderSummaryEditable(true);
     setShowReviewDeliveryInfo(false);
@@ -47,11 +47,16 @@ const OrderConfrimation = () => {
     setShowSetupCard(true);
   };
 
+  const handleThankYou = () => {
+    setShowOrderSummaryEditable(false);
+    setShowThankYou(true);
+  };
+
   if (showOrderSummary) {
-    return <OrderSummary onClose={handleCloseOrderSummary} />;
+    return <OrderSummaryEditable onClose={handleCloseOrderSummary} />;
   }
   if (showOrderSummaryEditable) {
-    return <OrderSummaryEditable onClose={handleCloseOrderSummaryEditable}  />;
+    return <OrderSummaryEditable onClose={handleCloseOrderSummaryEditable}  onThankYou={handleThankYou} />;
   }
 
   if (showReviewDeliveryInfo) {
@@ -60,6 +65,10 @@ const OrderConfrimation = () => {
   if (showSetupCard) {
     return <SetupCard onOrderSummaryEditable={handleOrderSummaryEditable} />;
   }
+  if (showThankYou) {
+    return <ThankYou />;
+  }
+
 
   return (
     <>
@@ -102,7 +111,7 @@ const OrderConfrimation = () => {
           <p>Success! Would you like to setup your personal club now?</p>
           <p>Getting setup is easy</p>
         </div>
-        <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-3" onClick={handleClubClick}>
+        <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-3" onClick={handleClubClick} >
           Setup MY club
           <ChevronRightIcon className="w-4 h-4" />
         </button>

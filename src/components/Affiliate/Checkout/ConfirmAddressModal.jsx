@@ -52,7 +52,7 @@ const ConfirmAddressModal = (props) => {
                     />
                   </div>
 
-                  <h6 className="font-bold mb-1">Let`&apos;`s confirm your address</h6>
+                  <h6 className="font-bold mb-1">Let&apos;s confirm your address</h6>
                   <p className="text-t4 font-medium text-[15px]">
                     USPS was unable to verify the address you entered, but we
                     found a close a match.

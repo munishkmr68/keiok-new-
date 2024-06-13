@@ -62,7 +62,7 @@ const OrderSummary = ({ onClose }) => {
               <LockClosedIcon className="size-3 relative -top-[1px]" /> REVIEW
             </span>
             <h4 className="mb-0.5 text-t4 font-bold leading-tight">
-              Let`&apos;`s make sure
+              Let&apos;s make sure
               <br />
               everything is <span className="text-darkpink">right</span>
             </h4>
@@ -75,7 +75,7 @@ const OrderSummary = ({ onClose }) => {
           <p>Are you ready for thicker, fuller and longer looking lashes and brows?  Good, because your order is being prepared now.</p>
           <p>A confirmation email has been sent to your email:</p>
           <p className="font-bold">j ... e@gmail.com</p>
-          <p>If you don`&apos;`t see the confirmation email with in your inbox within an hour, please check your spam folder.</p>
+          <p>If you don&apos;t see the confirmation email with in your inbox within an hour, please check your spam folder.</p>
         </div>
 
 

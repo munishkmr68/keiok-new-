@@ -153,7 +153,10 @@ const Checkout = (props) => {
           <div className="max-w-[484px] mx-auto  px-4">
             <div className="border rounded-xl shadow-shadow1 border-gray p-6">
               <div className="space-y-2.5">
-                <h4 className="text-base text-center mb-4"> Express checkout</h4>
+                <h4 className="text-base text-center mb-4">
+                  {" "}
+                  Express checkout
+                </h4>
                 <button className="rounded-xl w-full flex items-center px-4 sm:px-6 gap-2.5 bg-t1 text-white py-3.5">
                   <span className="mx-auto">
                     <ApplePay />
@@ -178,8 +181,7 @@ const Checkout = (props) => {
               <p className="text-xs font-medium max-w-[274px] mx-auto text-center mt-3">
                 I <span className="text-darkpink">choose</span> to subscribe
                 because of <span className="text-darkpink">our</span> Lash Cycle
-                and I can choose to
-                cancel anytime
+                and I can choose to cancel anytime
               </p>
               <div class="flex items-center justify-between my-7">
                 <span class="border-b border-gray flex-1"></span>
@@ -350,36 +352,36 @@ const Checkout = (props) => {
             <NeedHelp />
           </div>
           <div className="bg-pink mt-6">
-        <div className="max-w-[484px] mx-auto px-4 py-8">
-          <ul className="text-t4 space-y-2">
-            <li className="flex gap-2">
-              <LashesIcon className="w-6 h-6" />
-              <span className="text-base font-medium">
-                Natural LASHES
-                <br />+ BROWS
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <SubscribeIcone className="w-6 h-6" />
-              <span className="text-base font-medium">
-                Subscribe because of our <br />
-                Lash Cycle{" "}
-                <span className="text-blue text-base font-medium">
-                  Learn more
-                </span>
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <CheckmarkIcon className="w-6 h-6" />
-              <span className="text-base font-medium">
-                No commitments,
-                <br />
-                Cancel anytime
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
+            <div className="max-w-[484px] mx-auto px-4 py-8">
+              <ul className="text-t4 space-y-2">
+                <li className="flex gap-2">
+                  <LashesIcon className="w-6 h-6" />
+                  <span className="text-base font-medium">
+                    Natural LASHES
+                    <br />+ BROWS
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <SubscribeIcone className="w-6 h-6" />
+                  <span className="text-base font-medium">
+                    Subscribe because of our <br />
+                    Lash Cycle{" "}
+                    <span className="text-blue text-base font-medium">
+                      Learn more
+                    </span>
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <CheckmarkIcon className="w-6 h-6" />
+                  <span className="text-base font-medium">
+                    No commitments,
+                    <br />
+                    Cancel anytime
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
           <Footer />
           <GooglePlaceSearchPopup
