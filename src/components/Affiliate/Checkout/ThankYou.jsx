@@ -31,14 +31,14 @@ const ThankYou = () => {
         </div>
         <div className="space-y-1 text-t3 text-[15px] my-8 font-medium">
           <p>Success! Would you like to setup your personal club now?</p>
-          <p>It's easy and fast</p>
+          <p>It&apos;s easy and fast</p>
         </div>
         <button className="primary-button flex flex-1 items-center justify-center gap-4 sm:gap-6 mt-3">
           Setup MY club
           <ChevronRightIcon className="w-4 h-4" />
         </button>
         <p className="font-medium text-[15px] text-blue mt-3 mb-14 underline text-center">
-          I`&apos;`ll do it later
+          I&apos;ll do it later
         </p>
       </div>
       <div className="max-w-[484px] mx-auto px-4 mb-12">
