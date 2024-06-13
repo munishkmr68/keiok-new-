@@ -38,7 +38,7 @@ const ThankYou = () => {
           <ChevronRightIcon className="w-4 h-4" />
         </button>
         <p className="font-medium text-[15px] text-blue mt-3 mb-14 underline text-center">
-          I&apos;ll do it later
+          I`&apos;`ll do it later
         </p>
       </div>
       <div className="max-w-[484px] mx-auto px-4 mb-12">
